@@ -108834,6 +108834,7 @@ var app = (function () {
   			t = text("Click & Drag Here (Latent Space)");
   			attr_dev(div, "class", "controller svelte-taj65z");
   			set_style(div, "--latent-color", /*latentColor*/ ctx[2]);
+  			attr_dev(div, "on", "");
   			add_location(div, file, 93, 1, 2262);
   		},
   		m: function mount(target, anchor) {
@@ -108843,8 +108844,10 @@ var app = (function () {
   			if (!mounted) {
   				dispose = [
   					listen_dev(div, "mousedown", /*mousedown_handler*/ ctx[7], false, false, false),
-  					listen_dev(div, "mousemove", /*mousemove_handler*/ ctx[8], false, false, false),
-  					listen_dev(div, "mouseup", /*mouseup_handler*/ ctx[9], false, false, false)
+  					listen_dev(div, "touchstart", /*touchstart_handler*/ ctx[8], false, false, false),
+  					listen_dev(div, "mousemove", /*mousemove_handler*/ ctx[9], false, false, false),
+  					listen_dev(div, "touch", /*touch_handler*/ ctx[10], false, false, false),
+  					listen_dev(div, "mouseup", /*mouseup_handler*/ ctx[11], false, false, false)
   				];
 
   				mounted = true;
@@ -109025,7 +109028,15 @@ var app = (function () {
   		startControl();
   	};
 
+  	const touchstart_handler = e => {
+  		startControl();
+  	};
+
   	const mousemove_handler = e => {
+  		onMouseMove(e);
+  	};
+
+  	const touch_handler = e => {
   		onMouseMove(e);
   	};
 
@@ -109077,7 +109088,9 @@ var app = (function () {
   		onMouseMove,
   		div_binding,
   		mousedown_handler,
+  		touchstart_handler,
   		mousemove_handler,
+  		touch_handler,
   		mouseup_handler
   	];
   }
