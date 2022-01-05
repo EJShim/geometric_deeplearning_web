@@ -44184,7 +44184,7 @@ var app = (function () {
   	const block = {
   		c: function create() {
   			div = element("div");
-  			attr_dev(div, "class", "c svelte-1yjrdku");
+  			attr_dev(div, "class", "c svelte-1y2e8qv");
   			add_location(div, file$2, 2, 8, 57);
   		},
   		m: function mount(target, anchor) {
@@ -44224,7 +44224,7 @@ var app = (function () {
   				each_blocks[i].c();
   			}
 
-  			attr_dev(div, "class", "wrap svelte-1yjrdku");
+  			attr_dev(div, "class", "wrap svelte-1y2e8qv");
   			add_location(div, file$2, 0, 0, 0);
   		},
   		l: function claim(nodes) {
@@ -44384,7 +44384,7 @@ var app = (function () {
   			attr_dev(div, "class", "controller svelte-17zf8jl");
   			set_style(div, "--latent-color", /*latentColor*/ ctx[2]);
   			attr_dev(div, "on", "");
-  			add_location(div, file, 118, 1, 3348);
+  			add_location(div, file, 118, 1, 3419);
   		},
   		m: function mount(target, anchor) {
   			insert_dev(target, div, anchor);
@@ -44444,7 +44444,7 @@ var app = (function () {
   			if (if_block) if_block.c();
   			if_block_anchor = empty();
   			attr_dev(div, "class", "renderer svelte-17zf8jl");
-  			add_location(div, file, 115, 0, 3282);
+  			add_location(div, file, 115, 0, 3353);
   		},
   		l: function claim(nodes) {
   			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -44534,7 +44534,7 @@ var app = (function () {
   		// m_targetObject.getPointData().setScalars(scalars);
   		m_targetActor = makeActor(m_targetObject);
 
-  		m_targetActor.getProperty().setColor(.8, .7, .3);
+  		m_targetActor.getProperty().setColor(239 / 255, 192 / 255, 80 / 255);
   		m_targetActor.getProperty().setSpecular(true);
   		m_targetActor.getProperty().setSpecularColor(.2, .2, .2);
   		m_targetActor.getProperty().setSpecularPower(300);
@@ -44577,7 +44577,7 @@ var app = (function () {
   			1 - Math.sqrt(Math.pow(1 - x, 2) + Math.pow(1 - y, 2))
   		];
 
-  		$$invalidate(2, latentColor = `rgb(${255 * latentWeights[0]}, ${255 * latentWeights[1]}, ${255 * latentWeights[2]})`);
+  		$$invalidate(2, latentColor = `rgb(${128 * (latentWeights[0] + latentWeights[3])}, ${128 * (latentWeights[1] + latentWeights[3])}, ${128 * (latentWeights[2] + latentWeights[3])})`);
   		m_targetActor.getProperty().setAmbientColor(latentWeights[0], latentWeights[1], latentWeights[2]);
   		let outputLatent = new Float32Array(16);
 
