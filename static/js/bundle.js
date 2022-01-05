@@ -44184,7 +44184,7 @@ var app = (function () {
   	const block = {
   		c: function create() {
   			div = element("div");
-  			attr_dev(div, "class", "c svelte-1y2e8qv");
+  			attr_dev(div, "class", "c svelte-e9edf7");
   			add_location(div, file$2, 2, 8, 57);
   		},
   		m: function mount(target, anchor) {
@@ -44224,7 +44224,7 @@ var app = (function () {
   				each_blocks[i].c();
   			}
 
-  			attr_dev(div, "class", "wrap svelte-1y2e8qv");
+  			attr_dev(div, "class", "wrap svelte-e9edf7");
   			add_location(div, file$2, 0, 0, 0);
   		},
   		l: function claim(nodes) {
