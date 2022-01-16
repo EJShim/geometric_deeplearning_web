@@ -712,7 +712,7 @@ var app = (function () {
    * @returns {mat3} out
    */
 
-  function multiplyScalar$1(out, a, b) {
+  function multiplyScalar$2(out, a, b) {
     out[0] = a[0] * b;
     out[1] = a[1] * b;
     out[2] = a[2] * b;
@@ -827,7 +827,7 @@ var app = (function () {
     frob: frob$1,
     add: add$3,
     subtract: subtract$3,
-    multiplyScalar: multiplyScalar$1,
+    multiplyScalar: multiplyScalar$2,
     multiplyScalarAndAdd: multiplyScalarAndAdd$1,
     exactEquals: exactEquals$2,
     equals: equals$2,
@@ -2534,7 +2534,7 @@ var app = (function () {
    * @returns {mat4} out
    */
 
-  function multiplyScalar(out, a, b) {
+  function multiplyScalar$1(out, a, b) {
     out[0] = a[0] * b;
     out[1] = a[1] * b;
     out[2] = a[2] * b;
@@ -2692,7 +2692,7 @@ var app = (function () {
     frob: frob,
     add: add$2,
     subtract: subtract$2,
-    multiplyScalar: multiplyScalar,
+    multiplyScalar: multiplyScalar$1,
     multiplyScalarAndAdd: multiplyScalarAndAdd,
     exactEquals: exactEquals$1,
     equals: equals$1,
@@ -4164,7 +4164,7 @@ var app = (function () {
   function vtkDebugMacro$a() {
     loggerFunctions.debug.apply(loggerFunctions, arguments);
   }
-  function vtkErrorMacro$l() {
+  function vtkErrorMacro$m() {
     loggerFunctions.error.apply(loggerFunctions, arguments);
   }
   function vtkWarningMacro$6() {
@@ -4351,7 +4351,7 @@ var app = (function () {
 
     publicAPI.modified = function (otherMTime) {
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return;
       }
 
@@ -4367,7 +4367,7 @@ var app = (function () {
 
     publicAPI.onModified = function (callback) {
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return null;
       }
 
@@ -4552,7 +4552,7 @@ var app = (function () {
             return false;
           }
 
-          vtkErrorMacro$l("Set Enum with invalid argument ".concat(field, ", ").concat(value));
+          vtkErrorMacro$m("Set Enum with invalid argument ".concat(field, ", ").concat(value));
           throw new RangeError('Set Enum with invalid string argument');
         }
 
@@ -4566,14 +4566,14 @@ var app = (function () {
               return true;
             }
 
-            vtkErrorMacro$l("Set Enum outside numeric range ".concat(field, ", ").concat(value));
+            vtkErrorMacro$m("Set Enum outside numeric range ".concat(field, ", ").concat(value));
             throw new RangeError('Set Enum outside numeric range');
           }
 
           return false;
         }
 
-        vtkErrorMacro$l("Set Enum with invalid argument (String/Number) ".concat(field, ", ").concat(value));
+        vtkErrorMacro$m("Set Enum with invalid argument (String/Number) ".concat(field, ", ").concat(value));
         throw new TypeError('Set Enum with invalid argument (String/Number)');
       };
     }
@@ -4589,14 +4589,14 @@ var app = (function () {
         };
       }
 
-      vtkErrorMacro$l("No setter for field ".concat(field));
+      vtkErrorMacro$m("No setter for field ".concat(field));
       throw new TypeError('No setter for field');
     }
 
     return function getSetter(publicAPI, model) {
       return function setter(value) {
         if (model.deleted) {
-          vtkErrorMacro$l('instance deleted - cannot call any method');
+          vtkErrorMacro$m('instance deleted - cannot call any method');
           return false;
         }
 
@@ -4656,7 +4656,7 @@ var app = (function () {
 
       publicAPI["set".concat(capitalize(field))] = function () {
         if (model.deleted) {
-          vtkErrorMacro$l('instance deleted - cannot call any method');
+          vtkErrorMacro$m('instance deleted - cannot call any method');
           return false;
         }
 
@@ -4760,12 +4760,12 @@ var app = (function () {
       var port = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return;
       }
 
       if (port >= model.numberOfInputs) {
-        vtkErrorMacro$l("algorithm ".concat(publicAPI.getClassName(), " only has ").concat(model.numberOfInputs, " input ports. To add more input ports, use addInputData()"));
+        vtkErrorMacro$m("algorithm ".concat(publicAPI.getClassName(), " only has ").concat(model.numberOfInputs, " input ports. To add more input ports, use addInputData()"));
         return;
       }
 
@@ -4793,7 +4793,7 @@ var app = (function () {
       var port = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return;
       }
 
@@ -4801,7 +4801,7 @@ var app = (function () {
         var msg = "algorithm ".concat(publicAPI.getClassName(), " only has ");
         msg += "".concat(model.numberOfInputs);
         msg += ' input ports. To add more input ports, use addInputConnection()';
-        vtkErrorMacro$l(msg);
+        vtkErrorMacro$m(msg);
         return;
       }
 
@@ -4816,7 +4816,7 @@ var app = (function () {
 
     function addInputConnection(outputPort) {
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return;
       }
 
@@ -4835,7 +4835,7 @@ var app = (function () {
 
     function addInputData(dataset) {
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return;
       }
 
@@ -4856,7 +4856,7 @@ var app = (function () {
       var port = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return null;
       }
 
@@ -5032,7 +5032,7 @@ var app = (function () {
       var _arguments = arguments;
 
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return;
       }
       /* eslint-disable prefer-rest-params */
@@ -5086,7 +5086,7 @@ var app = (function () {
       }
 
       if (model.deleted) {
-        vtkErrorMacro$l('instance deleted - cannot call any method');
+        vtkErrorMacro$m('instance deleted - cannot call any method');
         return null;
       }
 
@@ -5943,14 +5943,14 @@ var app = (function () {
     uncapitalize: uncapitalize,
     VOID: VOID$1,
     vtkDebugMacro: vtkDebugMacro$a,
-    vtkErrorMacro: vtkErrorMacro$l,
+    vtkErrorMacro: vtkErrorMacro$m,
     vtkInfoMacro: vtkInfoMacro,
     vtkLogMacro: vtkLogMacro,
     vtkOnceErrorMacro: vtkOnceErrorMacro$1,
     vtkWarningMacro: vtkWarningMacro$6
   };
 
-  var vtkErrorMacro$k = macro.vtkErrorMacro;
+  var vtkErrorMacro$l = macro.vtkErrorMacro;
   var PASS_TYPES = ['Build', 'Render']; // ----------------------------------------------------------------------------
   // vtkViewNode methods
   // ----------------------------------------------------------------------------
@@ -6120,7 +6120,7 @@ var app = (function () {
 
     publicAPI.createViewNode = function (dataObj) {
       if (!model.myFactory) {
-        vtkErrorMacro$k('Cannot create view nodes without my own factory');
+        vtkErrorMacro$l('Cannot create view nodes without my own factory');
         return null;
       }
 
@@ -7070,7 +7070,7 @@ var app = (function () {
     Interpolation: Interpolation$1
   };
 
-  var vtkErrorMacro$j = macro.vtkErrorMacro; // ----------------------------------------------------------------------------
+  var vtkErrorMacro$k = macro.vtkErrorMacro; // ----------------------------------------------------------------------------
   // Static functions
   // ----------------------------------------------------------------------------
 
@@ -7406,12 +7406,12 @@ var app = (function () {
 
     publicAPI.setCoordShiftAndScale = function (coordShift, coordScale) {
       if (coordShift !== null && (coordShift.constructor !== Float64Array || coordShift.length !== 3)) {
-        vtkErrorMacro$j('Wrong type for coordShift, expected vec3 or null');
+        vtkErrorMacro$k('Wrong type for coordShift, expected vec3 or null');
         return;
       }
 
       if (coordScale !== null && (coordScale.constructor !== Float64Array || coordScale.length !== 3)) {
-        vtkErrorMacro$j('Wrong type for coordScale, expected vec3 or null');
+        vtkErrorMacro$k('Wrong type for coordScale, expected vec3 or null');
         return;
       }
 
@@ -7472,7 +7472,7 @@ var app = (function () {
     extend: extend$1f
   };
 
-  var vtkErrorMacro$i = macro.vtkErrorMacro; // export const SHADER_TYPES = ['Vertex', 'Fragment', 'Geometry', 'Unknown'];
+  var vtkErrorMacro$j = macro.vtkErrorMacro; // export const SHADER_TYPES = ['Vertex', 'Fragment', 'Geometry', 'Unknown'];
   // ----------------------------------------------------------------------------
   // vtkShader methods
   // ----------------------------------------------------------------------------
@@ -7515,7 +7515,7 @@ var app = (function () {
 
       if (!isCompiled) {
         var lastError = model.context.getShaderInfoLog(model.handle);
-        vtkErrorMacro$i("Error compiling shader '".concat(model.source, "': ").concat(lastError));
+        vtkErrorMacro$j("Error compiling shader '".concat(model.source, "': ").concat(lastError));
         model.context.deleteShader(model.handle);
         model.handle = 0;
         return false;
@@ -7565,7 +7565,7 @@ var app = (function () {
     extend: extend$1e
   };
 
-  var vtkErrorMacro$h = macro.vtkErrorMacro; // perform in place string substitutions, indicate if a substitution was done
+  var vtkErrorMacro$i = macro.vtkErrorMacro; // perform in place string substitutions, indicate if a substitution was done
   // this is useful for building up shader strings which typically involve
   // lots of string substitutions. Return true if a substitution was done.
 
@@ -7601,34 +7601,34 @@ var app = (function () {
 
     publicAPI.compileShader = function () {
       if (!model.vertexShader.compile()) {
-        vtkErrorMacro$h(model.vertexShader.getSource().split('\n').map(function (line, index) {
+        vtkErrorMacro$i(model.vertexShader.getSource().split('\n').map(function (line, index) {
           return "".concat(index, ": ").concat(line);
         }).join('\n'));
-        vtkErrorMacro$h(model.vertexShader.getError());
+        vtkErrorMacro$i(model.vertexShader.getError());
         return 0;
       }
 
       if (!model.fragmentShader.compile()) {
-        vtkErrorMacro$h(model.fragmentShader.getSource().split('\n').map(function (line, index) {
+        vtkErrorMacro$i(model.fragmentShader.getSource().split('\n').map(function (line, index) {
           return "".concat(index, ": ").concat(line);
         }).join('\n'));
-        vtkErrorMacro$h(model.fragmentShader.getError());
+        vtkErrorMacro$i(model.fragmentShader.getError());
         return 0;
       } // skip geometry for now
 
 
       if (!publicAPI.attachShader(model.vertexShader)) {
-        vtkErrorMacro$h(model.error);
+        vtkErrorMacro$i(model.error);
         return 0;
       }
 
       if (!publicAPI.attachShader(model.fragmentShader)) {
-        vtkErrorMacro$h(model.error);
+        vtkErrorMacro$i(model.error);
         return 0;
       }
 
       if (!publicAPI.link()) {
-        vtkErrorMacro$h("Links failed: ".concat(model.error));
+        vtkErrorMacro$i("Links failed: ".concat(model.error));
         return 0;
       }
 
@@ -7687,7 +7687,7 @@ var app = (function () {
 
       if (!isCompiled) {
         var lastError = model.context.getProgramInfoLog(model.handle);
-        vtkErrorMacro$h("Error linking shader ".concat(lastError));
+        vtkErrorMacro$i("Error linking shader ".concat(lastError));
         model.handle = 0;
         return false;
       }
@@ -8022,7 +8022,7 @@ var app = (function () {
       }
 
       if (!model.linked) {
-        vtkErrorMacro$h('attempt to find uniform when the shader program is not linked');
+        vtkErrorMacro$i('attempt to find uniform when the shader program is not linked');
         return false;
       }
 
@@ -8049,7 +8049,7 @@ var app = (function () {
       }
 
       if (!model.linked) {
-        vtkErrorMacro$h('attempt to find uniform when the shader program is not linked');
+        vtkErrorMacro$i('attempt to find uniform when the shader program is not linked');
         return false;
       }
 
@@ -9415,7 +9415,7 @@ var app = (function () {
 
   */
 
-  var seedrandom = createCommonjsModule(function (module) {
+  var seedrandom$1 = createCommonjsModule(function (module) {
   (function (global, pool, math) {
   //
   // The following constants are related to IEEE 754 limits.
@@ -9696,15 +9696,44 @@ var app = (function () {
   // Period: ~2^1600
 
 
-  seedrandom.alea = alea;
-  seedrandom.xor128 = xor128;
-  seedrandom.xorwow = xorwow;
-  seedrandom.xorshift7 = xorshift7;
-  seedrandom.xor4096 = xor4096;
-  seedrandom.tychei = tychei;
+  seedrandom$1.alea = alea;
+  seedrandom$1.xor128 = xor128;
+  seedrandom$1.xorwow = xorwow;
+  seedrandom$1.xorshift7 = xorshift7;
+  seedrandom$1.xor4096 = xor4096;
+  seedrandom$1.tychei = tychei;
 
-  var vtkWarningMacro$5 = macro.vtkWarningMacro; // ----------------------------------------------------------------------------
+  var seedrandom = seedrandom$1;
+
+  var vtkErrorMacro$h = macro.vtkErrorMacro,
+      vtkWarningMacro$5 = macro.vtkWarningMacro; // ----------------------------------------------------------------------------
+
+  /* eslint-disable camelcase                                                  */
+
+  /* eslint-disable no-cond-assign                                             */
+
+  /* eslint-disable no-bitwise                                                 */
+
+  /* eslint-disable no-multi-assign                                            */
+  // ----------------------------------------------------------------------------
+
+  var randomSeedValue = 0;
+  var VTK_MAX_ROTATIONS = 20;
   var VTK_SMALL_NUMBER = 1.0e-12;
+
+  function notImplemented$5(method) {
+    return function () {
+      return vtkErrorMacro$h("vtkMath::".concat(method, " - NOT IMPLEMENTED"));
+    };
+  }
+
+  function vtkSwapVectors3(v1, v2) {
+    for (var i = 0; i < 3; i++) {
+      var tmp = v1[i];
+      v1[i] = v2[i];
+      v2[i] = tmp;
+    }
+  }
 
   function createArray() {
     var size = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3;
@@ -9716,13 +9745,70 @@ var app = (function () {
 
     return array;
   } // ----------------------------------------------------------------------------
+  // Global methods
+  // ----------------------------------------------------------------------------
+
+
+  var Pi = function Pi() {
+    return Math.PI;
+  };
   function radiansFromDegrees(deg) {
     return deg / 180 * Math.PI;
   }
   function degreesFromRadians(rad) {
     return rad * 180 / Math.PI;
   }
-  var round = Math.round;
+  var round = Math.round,
+      floor = Math.floor,
+      ceil = Math.ceil,
+      min = Math.min,
+      max = Math.max;
+  function arrayMin(arr) {
+    var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var stride = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var minValue = Infinity;
+
+    for (var i = offset, len = arr.length; i < len; i += stride) {
+      if (arr[i] < minValue) {
+        minValue = arr[i];
+      }
+    }
+
+    return minValue;
+  }
+  function arrayMax(arr) {
+    var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var stride = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var maxValue = -Infinity;
+
+    for (var i = offset, len = arr.length; i < len; i += stride) {
+      if (maxValue < arr[i]) {
+        maxValue = arr[i];
+      }
+    }
+
+    return maxValue;
+  }
+  function arrayRange(arr) {
+    var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var stride = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var minValue = Infinity;
+    var maxValue = -Infinity;
+
+    for (var i = offset, len = arr.length; i < len; i += stride) {
+      if (arr[i] < minValue) {
+        minValue = arr[i];
+      }
+
+      if (maxValue < arr[i]) {
+        maxValue = arr[i];
+      }
+    }
+
+    return [minValue, maxValue];
+  }
+  var ceilLog2 = notImplemented$5('ceilLog2');
+  var factorial = notImplemented$5('factorial');
   function nearestPowerOfTwo(xi) {
     var v = 1;
 
@@ -9735,6 +9821,62 @@ var app = (function () {
   function isPowerOfTwo(x) {
     return x === nearestPowerOfTwo(x);
   }
+  function binomial(m, n) {
+    var r = 1;
+
+    for (var i = 1; i <= n; ++i) {
+      r *= (m - i + 1) / i;
+    }
+
+    return Math.floor(r);
+  }
+  function beginCombination(m, n) {
+    if (m < n) {
+      return 0;
+    }
+
+    var r = createArray(n);
+
+    for (var i = 0; i < n; ++i) {
+      r[i] = i;
+    }
+
+    return r;
+  }
+  function nextCombination(m, n, r) {
+    var status = 0;
+
+    for (var i = n - 1; i >= 0; --i) {
+      if (r[i] < m - n + i) {
+        var j = r[i] + 1;
+
+        while (i < n) {
+          r[i++] = j++;
+        }
+
+        status = 1;
+        break;
+      }
+    }
+
+    return status;
+  }
+  function randomSeed(seed) {
+    seedrandom("".concat(seed), {
+      global: true
+    });
+    randomSeedValue = seed;
+  }
+  function getSeed() {
+    return randomSeedValue;
+  }
+  function random() {
+    var minValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var maxValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    var delta = maxValue - minValue;
+    return minValue + delta * Math.random();
+  }
+  var gaussian = notImplemented$5('gaussian'); // Vect3 operations
 
   function add(a, b, out) {
     out[0] = a[0] + b[0];
@@ -9748,8 +9890,37 @@ var app = (function () {
     out[2] = a[2] - b[2];
     return out;
   }
+  function multiplyScalar(vec, scalar) {
+    vec[0] *= scalar;
+    vec[1] *= scalar;
+    vec[2] *= scalar;
+    return vec;
+  }
+  function multiplyScalar2D(vec, scalar) {
+    vec[0] *= scalar;
+    vec[1] *= scalar;
+    return vec;
+  }
+  function multiplyAccumulate(a, b, scalar, out) {
+    out[0] = a[0] + b[0] * scalar;
+    out[1] = a[1] + b[1] * scalar;
+    out[2] = a[2] + b[2] * scalar;
+    return out;
+  }
+  function multiplyAccumulate2D(a, b, scalar, out) {
+    out[0] = a[0] + b[0] * scalar;
+    out[1] = a[1] + b[1] * scalar;
+    return out;
+  }
   function dot(x, y) {
     return x[0] * y[0] + x[1] * y[1] + x[2] * y[2];
+  }
+  function outer(x, y, out_3x3) {
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < 3; j++) {
+        out_3x3[i][j] = x[i] * y[j];
+      }
+    }
   }
   function cross(x, y, out) {
     var Zx = x[1] * y[2] - x[2] * y[1];
@@ -9796,8 +9967,138 @@ var app = (function () {
 
     return den;
   }
+  function perpendiculars(x, y, z, theta) {
+    var x2 = x[0] * x[0];
+    var y2 = x[1] * x[1];
+    var z2 = x[2] * x[2];
+    var r = Math.sqrt(x2 + y2 + z2);
+    var dx;
+    var dy;
+    var dz; // transpose the vector to avoid divide-by-zero error
+
+    if (x2 > y2 && x2 > z2) {
+      dx = 0;
+      dy = 1;
+      dz = 2;
+    } else if (y2 > z2) {
+      dx = 1;
+      dy = 2;
+      dz = 0;
+    } else {
+      dx = 2;
+      dy = 0;
+      dz = 1;
+    }
+
+    var a = x[dx] / r;
+    var b = x[dy] / r;
+    var c = x[dz] / r;
+    var tmp = Math.sqrt(a * a + c * c);
+
+    if (theta !== 0) {
+      var sintheta = Math.sin(theta);
+      var costheta = Math.cos(theta);
+
+      if (y) {
+        y[dx] = (c * costheta - a * b * sintheta) / tmp;
+        y[dy] = sintheta * tmp;
+        y[dz] = (-(a * costheta) - b * c * sintheta) / tmp;
+      }
+
+      if (z) {
+        z[dx] = (-(c * sintheta) - a * b * costheta) / tmp;
+        z[dy] = costheta * tmp;
+        z[dz] = (a * sintheta - b * c * costheta) / tmp;
+      }
+    } else {
+      if (y) {
+        y[dx] = c / tmp;
+        y[dy] = 0;
+        y[dz] = -a / tmp;
+      }
+
+      if (z) {
+        z[dx] = -a * b / tmp;
+        z[dy] = tmp;
+        z[dz] = -b * c / tmp;
+      }
+    }
+  }
+  function projectVector$1(a, b, projection) {
+    var bSquared = dot(b, b);
+
+    if (bSquared === 0) {
+      projection[0] = 0;
+      projection[1] = 0;
+      projection[2] = 0;
+      return false;
+    }
+
+    var scale = dot(a, b) / bSquared;
+
+    for (var i = 0; i < 3; i++) {
+      projection[i] = b[i];
+    }
+
+    multiplyScalar(projection, scale);
+    return true;
+  }
+  function dot2D(x, y) {
+    return x[0] * y[0] + x[1] * y[1];
+  }
+  function projectVector2D(a, b, projection) {
+    var bSquared = dot2D(b, b);
+
+    if (bSquared === 0) {
+      projection[0] = 0;
+      projection[1] = 0;
+      return false;
+    }
+
+    var scale = dot2D(a, b) / bSquared;
+
+    for (var i = 0; i < 2; i++) {
+      projection[i] = b[i];
+    }
+
+    multiplyScalar2D(projection, scale);
+    return true;
+  }
   function distance2BetweenPoints(x, y) {
     return (x[0] - y[0]) * (x[0] - y[0]) + (x[1] - y[1]) * (x[1] - y[1]) + (x[2] - y[2]) * (x[2] - y[2]);
+  }
+  function angleBetweenVectors(v1, v2) {
+    var crossVect = [0, 0, 0];
+    cross(v1, v2, crossVect);
+    return Math.atan2(norm(crossVect), dot(v1, v2));
+  }
+  function gaussianAmplitude(mean, variance, position) {
+    var distanceFromMean = Math.abs(mean - position);
+    return 1 / Math.sqrt(2 * Math.PI * variance) * Math.exp(-Math.pow(distanceFromMean, 2) / (2 * variance));
+  }
+  function gaussianWeight(mean, variance, position) {
+    var distanceFromMean = Math.abs(mean - position);
+    return Math.exp(-Math.pow(distanceFromMean, 2) / (2 * variance));
+  }
+  function outer2D(x, y, out_2x2) {
+    for (var i = 0; i < 2; i++) {
+      for (var j = 0; j < 2; j++) {
+        out_2x2[i][j] = x[i] * y[j];
+      }
+    }
+  }
+  function norm2D(x2D) {
+    return Math.sqrt(x2D[0] * x2D[0] + x2D[1] * x2D[1]);
+  }
+  function normalize2D(x) {
+    var den = norm2D(x);
+
+    if (den !== 0.0) {
+      x[0] /= den;
+      x[1] /= den;
+    }
+
+    return den;
   }
   function determinant2x2() {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -9814,6 +10115,259 @@ var app = (function () {
 
     return Number.NaN;
   }
+  function LUFactor3x3(mat_3x3, index_3) {
+    var maxI;
+    var tmp;
+    var largest;
+    var scale = [0, 0, 0]; // Loop over rows to get implicit scaling information
+
+    for (var i = 0; i < 3; i++) {
+      largest = Math.abs(mat_3x3[i][0]);
+
+      if ((tmp = Math.abs(mat_3x3[i][1])) > largest) {
+        largest = tmp;
+      }
+
+      if ((tmp = Math.abs(mat_3x3[i][2])) > largest) {
+        largest = tmp;
+      }
+
+      scale[i] = 1 / largest;
+    } // Loop over all columns using Crout's method
+    // first column
+
+
+    largest = scale[0] * Math.abs(mat_3x3[0][0]);
+    maxI = 0;
+
+    if ((tmp = scale[1] * Math.abs(mat_3x3[1][0])) >= largest) {
+      largest = tmp;
+      maxI = 1;
+    }
+
+    if ((tmp = scale[2] * Math.abs(mat_3x3[2][0])) >= largest) {
+      maxI = 2;
+    }
+
+    if (maxI !== 0) {
+      vtkSwapVectors3(mat_3x3[maxI], mat_3x3[0]);
+      scale[maxI] = scale[0];
+    }
+
+    index_3[0] = maxI;
+    mat_3x3[1][0] /= mat_3x3[0][0];
+    mat_3x3[2][0] /= mat_3x3[0][0]; // second column
+
+    mat_3x3[1][1] -= mat_3x3[1][0] * mat_3x3[0][1];
+    mat_3x3[2][1] -= mat_3x3[2][0] * mat_3x3[0][1];
+    largest = scale[1] * Math.abs(mat_3x3[1][1]);
+    maxI = 1;
+
+    if ((tmp = scale[2] * Math.abs(mat_3x3[2][1])) >= largest) {
+      maxI = 2;
+      vtkSwapVectors3(mat_3x3[2], mat_3x3[1]);
+      scale[2] = scale[1];
+    }
+
+    index_3[1] = maxI;
+    mat_3x3[2][1] /= mat_3x3[1][1]; // third column
+
+    mat_3x3[1][2] -= mat_3x3[1][0] * mat_3x3[0][2];
+    mat_3x3[2][2] -= mat_3x3[2][0] * mat_3x3[0][2] + mat_3x3[2][1] * mat_3x3[1][2];
+    index_3[2] = 2;
+  }
+  function LUSolve3x3(mat_3x3, index_3, x_3) {
+    // forward substitution
+    var sum = x_3[index_3[0]];
+    x_3[index_3[0]] = x_3[0];
+    x_3[0] = sum;
+    sum = x_3[index_3[1]];
+    x_3[index_3[1]] = x_3[1];
+    x_3[1] = sum - mat_3x3[1][0] * x_3[0];
+    sum = x_3[index_3[2]];
+    x_3[index_3[2]] = x_3[2];
+    x_3[2] = sum - mat_3x3[2][0] * x_3[0] - mat_3x3[2][1] * x_3[1]; // back substitution
+
+    x_3[2] /= mat_3x3[2][2];
+    x_3[1] = (x_3[1] - mat_3x3[1][2] * x_3[2]) / mat_3x3[1][1];
+    x_3[0] = (x_3[0] - mat_3x3[0][1] * x_3[1] - mat_3x3[0][2] * x_3[2]) / mat_3x3[0][0];
+  }
+  function linearSolve3x3(mat_3x3, x_3, y_3) {
+    var a1 = mat_3x3[0][0];
+    var b1 = mat_3x3[0][1];
+    var c1 = mat_3x3[0][2];
+    var a2 = mat_3x3[1][0];
+    var b2 = mat_3x3[1][1];
+    var c2 = mat_3x3[1][2];
+    var a3 = mat_3x3[2][0];
+    var b3 = mat_3x3[2][1];
+    var c3 = mat_3x3[2][2]; // Compute the adjoint
+
+    var d1 = +determinant2x2(b2, b3, c2, c3);
+    var d2 = -determinant2x2(a2, a3, c2, c3);
+    var d3 = +determinant2x2(a2, a3, b2, b3);
+    var e1 = -determinant2x2(b1, b3, c1, c3);
+    var e2 = +determinant2x2(a1, a3, c1, c3);
+    var e3 = -determinant2x2(a1, a3, b1, b3);
+    var f1 = +determinant2x2(b1, b2, c1, c2);
+    var f2 = -determinant2x2(a1, a2, c1, c2);
+    var f3 = +determinant2x2(a1, a2, b1, b2); // Compute the determinant
+
+    var det = a1 * d1 + b1 * d2 + c1 * d3; // Multiply by the adjoint
+
+    var v1 = d1 * x_3[0] + e1 * x_3[1] + f1 * x_3[2];
+    var v2 = d2 * x_3[0] + e2 * x_3[1] + f2 * x_3[2];
+    var v3 = d3 * x_3[0] + e3 * x_3[1] + f3 * x_3[2]; // Divide by the determinant
+
+    y_3[0] = v1 / det;
+    y_3[1] = v2 / det;
+    y_3[2] = v3 / det;
+  }
+  function multiply3x3_vect3(mat_3x3, in_3, out_3) {
+    var x = mat_3x3[0][0] * in_3[0] + mat_3x3[0][1] * in_3[1] + mat_3x3[0][2] * in_3[2];
+    var y = mat_3x3[1][0] * in_3[0] + mat_3x3[1][1] * in_3[1] + mat_3x3[1][2] * in_3[2];
+    var z = mat_3x3[2][0] * in_3[0] + mat_3x3[2][1] * in_3[1] + mat_3x3[2][2] * in_3[2];
+    out_3[0] = x;
+    out_3[1] = y;
+    out_3[2] = z;
+  }
+  function multiply3x3_mat3(a_3x3, b_3x3, out_3x3) {
+    var tmp = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+
+    for (var i = 0; i < 3; i++) {
+      tmp[0][i] = a_3x3[0][0] * b_3x3[0][i] + a_3x3[0][1] * b_3x3[1][i] + a_3x3[0][2] * b_3x3[2][i];
+      tmp[1][i] = a_3x3[1][0] * b_3x3[0][i] + a_3x3[1][1] * b_3x3[1][i] + a_3x3[1][2] * b_3x3[2][i];
+      tmp[2][i] = a_3x3[2][0] * b_3x3[0][i] + a_3x3[2][1] * b_3x3[1][i] + a_3x3[2][2] * b_3x3[2][i];
+    }
+
+    for (var j = 0; j < 3; j++) {
+      out_3x3[j][0] = tmp[j][0];
+      out_3x3[j][1] = tmp[j][1];
+      out_3x3[j][2] = tmp[j][2];
+    }
+  }
+  function multiplyMatrix(a, b, rowA, colA, rowB, colB, out_rowXcol) {
+    // we need colA == rowB
+    if (colA !== rowB) {
+      vtkErrorMacro$h('Number of columns of A must match number of rows of B.');
+    } // output matrix is rowA*colB
+    // output row
+
+
+    for (var i = 0; i < rowA; i++) {
+      // output col
+      for (var j = 0; j < colB; j++) {
+        out_rowXcol[i][j] = 0; // sum for this point
+
+        for (var k = 0; k < colA; k++) {
+          out_rowXcol[i][j] += a[i][k] * b[k][j];
+        }
+      }
+    }
+  }
+  function transpose3x3(in_3x3, outT_3x3) {
+    var tmp;
+    tmp = in_3x3[1][0];
+    outT_3x3[1][0] = in_3x3[0][1];
+    outT_3x3[0][1] = tmp;
+    tmp = in_3x3[2][0];
+    outT_3x3[2][0] = in_3x3[0][2];
+    outT_3x3[0][2] = tmp;
+    tmp = in_3x3[2][1];
+    outT_3x3[2][1] = in_3x3[1][2];
+    outT_3x3[1][2] = tmp;
+    outT_3x3[0][0] = in_3x3[0][0];
+    outT_3x3[1][1] = in_3x3[1][1];
+    outT_3x3[2][2] = in_3x3[2][2];
+  }
+  function invert3x3(in_3x3, outI_3x3) {
+    var a1 = in_3x3[0][0];
+    var b1 = in_3x3[0][1];
+    var c1 = in_3x3[0][2];
+    var a2 = in_3x3[1][0];
+    var b2 = in_3x3[1][1];
+    var c2 = in_3x3[1][2];
+    var a3 = in_3x3[2][0];
+    var b3 = in_3x3[2][1];
+    var c3 = in_3x3[2][2]; // Compute the adjoint
+
+    var d1 = +determinant2x2(b2, b3, c2, c3);
+    var d2 = -determinant2x2(a2, a3, c2, c3);
+    var d3 = +determinant2x2(a2, a3, b2, b3);
+    var e1 = -determinant2x2(b1, b3, c1, c3);
+    var e2 = +determinant2x2(a1, a3, c1, c3);
+    var e3 = -determinant2x2(a1, a3, b1, b3);
+    var f1 = +determinant2x2(b1, b2, c1, c2);
+    var f2 = -determinant2x2(a1, a2, c1, c2);
+    var f3 = +determinant2x2(a1, a2, b1, b2); // Divide by the determinant
+
+    var det = a1 * d1 + b1 * d2 + c1 * d3;
+    outI_3x3[0][0] = d1 / det;
+    outI_3x3[1][0] = d2 / det;
+    outI_3x3[2][0] = d3 / det;
+    outI_3x3[0][1] = e1 / det;
+    outI_3x3[1][1] = e2 / det;
+    outI_3x3[2][1] = e3 / det;
+    outI_3x3[0][2] = f1 / det;
+    outI_3x3[1][2] = f2 / det;
+    outI_3x3[2][2] = f3 / det;
+  }
+  function identity3x3(mat_3x3) {
+    for (var i = 0; i < 3; i++) {
+      mat_3x3[i][0] = mat_3x3[i][1] = mat_3x3[i][2] = 0;
+      mat_3x3[i][i] = 1;
+    }
+  }
+  function determinant3x3(mat_3x3) {
+    return mat_3x3[0][0] * mat_3x3[1][1] * mat_3x3[2][2] + mat_3x3[1][0] * mat_3x3[2][1] * mat_3x3[0][2] + mat_3x3[2][0] * mat_3x3[0][1] * mat_3x3[1][2] - mat_3x3[0][0] * mat_3x3[2][1] * mat_3x3[1][2] - mat_3x3[1][0] * mat_3x3[0][1] * mat_3x3[2][2] - mat_3x3[2][0] * mat_3x3[1][1] * mat_3x3[0][2];
+  }
+  function quaternionToMatrix3x3(quat_4, mat_3x3) {
+    var ww = quat_4[0] * quat_4[0];
+    var wx = quat_4[0] * quat_4[1];
+    var wy = quat_4[0] * quat_4[2];
+    var wz = quat_4[0] * quat_4[3];
+    var xx = quat_4[1] * quat_4[1];
+    var yy = quat_4[2] * quat_4[2];
+    var zz = quat_4[3] * quat_4[3];
+    var xy = quat_4[1] * quat_4[2];
+    var xz = quat_4[1] * quat_4[3];
+    var yz = quat_4[2] * quat_4[3];
+    var rr = xx + yy + zz; // normalization factor, just in case quaternion was not normalized
+
+    var f = 1 / (ww + rr);
+    var s = (ww - rr) * f;
+    f *= 2;
+    mat_3x3[0][0] = xx * f + s;
+    mat_3x3[1][0] = (xy + wz) * f;
+    mat_3x3[2][0] = (xz - wy) * f;
+    mat_3x3[0][1] = (xy - wz) * f;
+    mat_3x3[1][1] = yy * f + s;
+    mat_3x3[2][1] = (yz + wx) * f;
+    mat_3x3[0][2] = (xz + wy) * f;
+    mat_3x3[1][2] = (yz - wx) * f;
+    mat_3x3[2][2] = zz * f + s;
+  }
+  /**
+   * Returns true if elements of both arrays are equals.
+   * @param {Array} a an array of numbers (vector, point, matrix...)
+   * @param {Array} b an array of numbers (vector, point, matrix...)
+   * @param {Number} eps tolerance
+   */
+
+  function areEquals(a, b) {
+    var eps = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1e-6;
+
+    if (a.length !== b.length) {
+      return false;
+    }
+
+    function isEqual(element, index) {
+      return Math.abs(element - b[index]) <= eps;
+    }
+
+    return a.every(isEqual);
+  }
+  var areMatricesEqual = areEquals;
   function roundNumber(num) {
     var digits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
@@ -9837,6 +10391,501 @@ var app = (function () {
     out[1] = roundNumber(vector[1], digits);
     out[2] = roundNumber(vector[2], digits);
     return out;
+  }
+  function jacobiN(a, n, w, v) {
+    var i;
+    var j;
+    var k;
+    var iq;
+    var ip;
+    var numPos;
+    var tresh;
+    var theta;
+    var t;
+    var tau;
+    var sm;
+    var s;
+    var h;
+    var g;
+    var c;
+    var tmp;
+    var b = createArray(n);
+    var z = createArray(n);
+
+    var vtkROTATE = function vtkROTATE(aa, ii, jj, kk, ll) {
+      g = aa[ii][jj];
+      h = aa[kk][ll];
+      aa[ii][jj] = g - s * (h + g * tau);
+      aa[kk][ll] = h + s * (g - h * tau);
+    }; // initialize
+
+
+    for (ip = 0; ip < n; ip++) {
+      for (iq = 0; iq < n; iq++) {
+        v[ip][iq] = 0.0;
+      }
+
+      v[ip][ip] = 1.0;
+    }
+
+    for (ip = 0; ip < n; ip++) {
+      b[ip] = w[ip] = a[ip][ip];
+      z[ip] = 0.0;
+    } // begin rotation sequence
+
+
+    for (i = 0; i < VTK_MAX_ROTATIONS; i++) {
+      sm = 0.0;
+
+      for (ip = 0; ip < n - 1; ip++) {
+        for (iq = ip + 1; iq < n; iq++) {
+          sm += Math.abs(a[ip][iq]);
+        }
+      }
+
+      if (sm === 0.0) {
+        break;
+      } // first 3 sweeps
+
+
+      if (i < 3) {
+        tresh = 0.2 * sm / (n * n);
+      } else {
+        tresh = 0.0;
+      }
+
+      for (ip = 0; ip < n - 1; ip++) {
+        for (iq = ip + 1; iq < n; iq++) {
+          g = 100.0 * Math.abs(a[ip][iq]); // after 4 sweeps
+
+          if (i > 3 && Math.abs(w[ip]) + g === Math.abs(w[ip]) && Math.abs(w[iq]) + g === Math.abs(w[iq])) {
+            a[ip][iq] = 0.0;
+          } else if (Math.abs(a[ip][iq]) > tresh) {
+            h = w[iq] - w[ip];
+
+            if (Math.abs(h) + g === Math.abs(h)) {
+              t = a[ip][iq] / h;
+            } else {
+              theta = 0.5 * h / a[ip][iq];
+              t = 1.0 / (Math.abs(theta) + Math.sqrt(1.0 + theta * theta));
+
+              if (theta < 0.0) {
+                t = -t;
+              }
+            }
+
+            c = 1.0 / Math.sqrt(1 + t * t);
+            s = t * c;
+            tau = s / (1.0 + c);
+            h = t * a[ip][iq];
+            z[ip] -= h;
+            z[iq] += h;
+            w[ip] -= h;
+            w[iq] += h;
+            a[ip][iq] = 0.0; // ip already shifted left by 1 unit
+
+            for (j = 0; j <= ip - 1; j++) {
+              vtkROTATE(a, j, ip, j, iq);
+            } // ip and iq already shifted left by 1 unit
+
+
+            for (j = ip + 1; j <= iq - 1; j++) {
+              vtkROTATE(a, ip, j, j, iq);
+            } // iq already shifted left by 1 unit
+
+
+            for (j = iq + 1; j < n; j++) {
+              vtkROTATE(a, ip, j, iq, j);
+            }
+
+            for (j = 0; j < n; j++) {
+              vtkROTATE(v, j, ip, j, iq);
+            }
+          }
+        }
+      }
+
+      for (ip = 0; ip < n; ip++) {
+        b[ip] += z[ip];
+        w[ip] = b[ip];
+        z[ip] = 0.0;
+      }
+    } // this is NEVER called
+
+
+    if (i >= VTK_MAX_ROTATIONS) {
+      vtkWarningMacro$5('vtkMath::Jacobi: Error extracting eigenfunctions');
+      return 0;
+    } // sort eigenfunctions: these changes do not affect accuracy
+
+
+    for (j = 0; j < n - 1; j++) {
+      // boundary incorrect
+      k = j;
+      tmp = w[k];
+
+      for (i = j + 1; i < n; i++) {
+        // boundary incorrect, shifted already
+        if (w[i] >= tmp) {
+          // why exchange if same?
+          k = i;
+          tmp = w[k];
+        }
+      }
+
+      if (k !== j) {
+        w[k] = w[j];
+        w[j] = tmp;
+
+        for (i = 0; i < n; i++) {
+          tmp = v[i][j];
+          v[i][j] = v[i][k];
+          v[i][k] = tmp;
+        }
+      }
+    } // ensure eigenvector consistency (i.e., Jacobi can compute vectors that
+    // are negative of one another (.707,.707,0) and (-.707,-.707,0). This can
+    // reek havoc in hyperstreamline/other stuff. We will select the most
+    // positive eigenvector.
+
+
+    var ceil_half_n = (n >> 1) + (n & 1);
+
+    for (j = 0; j < n; j++) {
+      for (numPos = 0, i = 0; i < n; i++) {
+        if (v[i][j] >= 0.0) {
+          numPos++;
+        }
+      } //    if ( numPos < ceil(double(n)/double(2.0)) )
+
+
+      if (numPos < ceil_half_n) {
+        for (i = 0; i < n; i++) {
+          v[i][j] *= -1.0;
+        }
+      }
+    }
+
+    return 1;
+  }
+  function matrix3x3ToQuaternion(mat_3x3, quat_4) {
+    var tmp = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]; // on-diagonal elements
+
+    tmp[0][0] = mat_3x3[0][0] + mat_3x3[1][1] + mat_3x3[2][2];
+    tmp[1][1] = mat_3x3[0][0] - mat_3x3[1][1] - mat_3x3[2][2];
+    tmp[2][2] = -mat_3x3[0][0] + mat_3x3[1][1] - mat_3x3[2][2];
+    tmp[3][3] = -mat_3x3[0][0] - mat_3x3[1][1] + mat_3x3[2][2]; // off-diagonal elements
+
+    tmp[0][1] = tmp[1][0] = mat_3x3[2][1] - mat_3x3[1][2];
+    tmp[0][2] = tmp[2][0] = mat_3x3[0][2] - mat_3x3[2][0];
+    tmp[0][3] = tmp[3][0] = mat_3x3[1][0] - mat_3x3[0][1];
+    tmp[1][2] = tmp[2][1] = mat_3x3[1][0] + mat_3x3[0][1];
+    tmp[1][3] = tmp[3][1] = mat_3x3[0][2] + mat_3x3[2][0];
+    tmp[2][3] = tmp[3][2] = mat_3x3[2][1] + mat_3x3[1][2];
+    var eigenvectors = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+    var eigenvalues = [0, 0, 0, 0]; // convert into format that JacobiN can use,
+    // then use Jacobi to find eigenvalues and eigenvectors
+
+    var NTemp = [0, 0, 0, 0];
+    var eigenvectorsTemp = [0, 0, 0, 0];
+
+    for (var i = 0; i < 4; i++) {
+      NTemp[i] = tmp[i];
+      eigenvectorsTemp[i] = eigenvectors[i];
+    }
+
+    jacobiN(NTemp, 4, eigenvalues, eigenvectorsTemp); // the first eigenvector is the one we want
+
+    quat_4[0] = eigenvectors[0][0];
+    quat_4[1] = eigenvectors[1][0];
+    quat_4[2] = eigenvectors[2][0];
+    quat_4[3] = eigenvectors[3][0];
+  }
+  function multiplyQuaternion(quat_1, quat_2, quat_out) {
+    var ww = quat_1[0] * quat_2[0];
+    var wx = quat_1[0] * quat_2[1];
+    var wy = quat_1[0] * quat_2[2];
+    var wz = quat_1[0] * quat_2[3];
+    var xw = quat_1[1] * quat_2[0];
+    var xx = quat_1[1] * quat_2[1];
+    var xy = quat_1[1] * quat_2[2];
+    var xz = quat_1[1] * quat_2[3];
+    var yw = quat_1[2] * quat_2[0];
+    var yx = quat_1[2] * quat_2[1];
+    var yy = quat_1[2] * quat_2[2];
+    var yz = quat_1[2] * quat_2[3];
+    var zw = quat_1[3] * quat_2[0];
+    var zx = quat_1[3] * quat_2[1];
+    var zy = quat_1[3] * quat_2[2];
+    var zz = quat_1[3] * quat_2[3];
+    quat_out[0] = ww - xx - yy - zz;
+    quat_out[1] = wx + xw + yz - zy;
+    quat_out[2] = wy - xz + yw + zx;
+    quat_out[3] = wz + xy - yx + zw;
+  }
+  function orthogonalize3x3(a_3x3, out_3x3) {
+    // copy the matrix
+    for (var i = 0; i < 3; i++) {
+      out_3x3[0][i] = a_3x3[0][i];
+      out_3x3[1][i] = a_3x3[1][i];
+      out_3x3[2][i] = a_3x3[2][i];
+    } // Pivot the matrix to improve accuracy
+
+
+    var scale = createArray(3);
+    var index = createArray(3);
+    var largest; // Loop over rows to get implicit scaling information
+
+    for (var _i = 0; _i < 3; _i++) {
+      var _x = Math.abs(out_3x3[_i][0]);
+
+      var _x2 = Math.abs(out_3x3[_i][1]);
+
+      var _x3 = Math.abs(out_3x3[_i][2]);
+
+      largest = _x2 > _x ? _x2 : _x;
+      largest = _x3 > largest ? _x3 : largest;
+      scale[_i] = 1;
+
+      if (largest !== 0) {
+        scale[_i] /= largest;
+      }
+    } // first column
+
+
+    var x1 = Math.abs(out_3x3[0][0]) * scale[0];
+    var x2 = Math.abs(out_3x3[1][0]) * scale[1];
+    var x3 = Math.abs(out_3x3[2][0]) * scale[2];
+    index[0] = 0;
+    largest = x1;
+
+    if (x2 >= largest) {
+      largest = x2;
+      index[0] = 1;
+    }
+
+    if (x3 >= largest) {
+      index[0] = 2;
+    }
+
+    if (index[0] !== 0) {
+      vtkSwapVectors3(out_3x3[index[0]], out_3x3[0]);
+      scale[index[0]] = scale[0];
+    } // second column
+
+
+    var y2 = Math.abs(out_3x3[1][1]) * scale[1];
+    var y3 = Math.abs(out_3x3[2][1]) * scale[2];
+    index[1] = 1;
+    largest = y2;
+
+    if (y3 >= largest) {
+      index[1] = 2;
+      vtkSwapVectors3(out_3x3[2], out_3x3[1]);
+    } // third column
+
+
+    index[2] = 2; // A quaternion can only describe a pure rotation, not
+    // a rotation with a flip, therefore the flip must be
+    // removed before the matrix is converted to a quaternion.
+
+    var flip = 0;
+
+    if (determinant3x3(out_3x3) < 0) {
+      flip = 1;
+
+      for (var _i2 = 0; _i2 < 3; _i2++) {
+        out_3x3[0][_i2] = -out_3x3[0][_i2];
+        out_3x3[1][_i2] = -out_3x3[1][_i2];
+        out_3x3[2][_i2] = -out_3x3[2][_i2];
+      }
+    } // Do orthogonalization using a quaternion intermediate
+    // (this, essentially, does the orthogonalization via
+    // diagonalization of an appropriately constructed symmetric
+    // 4x4 matrix rather than by doing SVD of the 3x3 matrix)
+
+
+    var quat = createArray(4);
+    matrix3x3ToQuaternion(out_3x3, quat);
+    quaternionToMatrix3x3(quat, out_3x3); // Put the flip back into the orthogonalized matrix.
+
+    if (flip) {
+      for (var _i3 = 0; _i3 < 3; _i3++) {
+        out_3x3[0][_i3] = -out_3x3[0][_i3];
+        out_3x3[1][_i3] = -out_3x3[1][_i3];
+        out_3x3[2][_i3] = -out_3x3[2][_i3];
+      }
+    } // Undo the pivoting
+
+
+    if (index[1] !== 1) {
+      vtkSwapVectors3(out_3x3[index[1]], out_3x3[1]);
+    }
+
+    if (index[0] !== 0) {
+      vtkSwapVectors3(out_3x3[index[0]], out_3x3[0]);
+    }
+  }
+  function diagonalize3x3(a_3x3, w_3, v_3x3) {
+    var i;
+    var j;
+    var k;
+    var maxI;
+    var tmp;
+    var maxVal; // do the matrix[3][3] to **matrix conversion for Jacobi
+
+    var C = [createArray(3), createArray(3), createArray(3)];
+    var ATemp = createArray(3);
+    var VTemp = createArray(3);
+
+    for (i = 0; i < 3; i++) {
+      C[i][0] = a_3x3[i][0];
+      C[i][1] = a_3x3[i][1];
+      C[i][2] = a_3x3[i][2];
+      ATemp[i] = C[i];
+      VTemp[i] = v_3x3[i];
+    } // diagonalize using Jacobi
+
+
+    jacobiN(ATemp, 3, w_3, VTemp); // if all the eigenvalues are the same, return identity matrix
+
+    if (w_3[0] === w_3[1] && w_3[0] === w_3[2]) {
+      identity3x3(v_3x3);
+      return;
+    } // transpose temporarily, it makes it easier to sort the eigenvectors
+
+
+    transpose3x3(v_3x3, v_3x3); // if two eigenvalues are the same, re-orthogonalize to optimally line
+    // up the eigenvectors with the x, y, and z axes
+
+    for (i = 0; i < 3; i++) {
+      // two eigenvalues are the same
+      if (w_3[(i + 1) % 3] === w_3[(i + 2) % 3]) {
+        // find maximum element of the independent eigenvector
+        maxVal = Math.abs(v_3x3[i][0]);
+        maxI = 0;
+
+        for (j = 1; j < 3; j++) {
+          if (maxVal < (tmp = Math.abs(v_3x3[i][j]))) {
+            maxVal = tmp;
+            maxI = j;
+          }
+        } // swap the eigenvector into its proper position
+
+
+        if (maxI !== i) {
+          tmp = w_3[maxI];
+          w_3[maxI] = w_3[i];
+          w_3[i] = tmp;
+          vtkSwapVectors3(v_3x3[i], v_3x3[maxI]);
+        } // maximum element of eigenvector should be positive
+
+
+        if (v_3x3[maxI][maxI] < 0) {
+          v_3x3[maxI][0] = -v_3x3[maxI][0];
+          v_3x3[maxI][1] = -v_3x3[maxI][1];
+          v_3x3[maxI][2] = -v_3x3[maxI][2];
+        } // re-orthogonalize the other two eigenvectors
+
+
+        j = (maxI + 1) % 3;
+        k = (maxI + 2) % 3;
+        v_3x3[j][0] = 0.0;
+        v_3x3[j][1] = 0.0;
+        v_3x3[j][2] = 0.0;
+        v_3x3[j][j] = 1.0;
+        cross(v_3x3[maxI], v_3x3[j], v_3x3[k]);
+        normalize(v_3x3[k]);
+        cross(v_3x3[k], v_3x3[maxI], v_3x3[j]); // transpose vectors back to columns
+
+        transpose3x3(v_3x3, v_3x3);
+        return;
+      }
+    } // the three eigenvalues are different, just sort the eigenvectors
+    // to align them with the x, y, and z axes
+    // find the vector with the largest x element, make that vector
+    // the first vector
+
+
+    maxVal = Math.abs(v_3x3[0][0]);
+    maxI = 0;
+
+    for (i = 1; i < 3; i++) {
+      if (maxVal < (tmp = Math.abs(v_3x3[i][0]))) {
+        maxVal = tmp;
+        maxI = i;
+      }
+    } // swap eigenvalue and eigenvector
+
+
+    if (maxI !== 0) {
+      tmp = w_3[maxI];
+      w_3[maxI] = w_3[0];
+      w_3[0] = tmp;
+      vtkSwapVectors3(v_3x3[maxI], v_3x3[0]);
+    } // do the same for the y element
+
+
+    if (Math.abs(v_3x3[1][1]) < Math.abs(v_3x3[2][1])) {
+      tmp = w_3[2];
+      w_3[2] = w_3[1];
+      w_3[1] = tmp;
+      vtkSwapVectors3(v_3x3[2], v_3x3[1]);
+    } // ensure that the sign of the eigenvectors is correct
+
+
+    for (i = 0; i < 2; i++) {
+      if (v_3x3[i][i] < 0) {
+        v_3x3[i][0] = -v_3x3[i][0];
+        v_3x3[i][1] = -v_3x3[i][1];
+        v_3x3[i][2] = -v_3x3[i][2];
+      }
+    } // set sign of final eigenvector to ensure that determinant is positive
+
+
+    if (determinant3x3(v_3x3) < 0) {
+      v_3x3[2][0] = -v_3x3[2][0];
+      v_3x3[2][1] = -v_3x3[2][1];
+      v_3x3[2][2] = -v_3x3[2][2];
+    } // transpose the eigenvectors back again
+
+
+    transpose3x3(v_3x3, v_3x3);
+  }
+  function singularValueDecomposition3x3(a_3x3, u_3x3, w_3, vT_3x3) {
+    var i;
+    var B = [createArray(3), createArray(3), createArray(3)]; // copy so that A can be used for U or VT without risk
+
+    for (i = 0; i < 3; i++) {
+      B[0][i] = a_3x3[0][i];
+      B[1][i] = a_3x3[1][i];
+      B[2][i] = a_3x3[2][i];
+    } // temporarily flip if determinant is negative
+
+
+    var d = determinant3x3(B);
+
+    if (d < 0) {
+      for (i = 0; i < 3; i++) {
+        B[0][i] = -B[0][i];
+        B[1][i] = -B[1][i];
+        B[2][i] = -B[2][i];
+      }
+    } // orthogonalize, diagonalize, etc.
+
+
+    orthogonalize3x3(B, u_3x3);
+    transpose3x3(B, B);
+    multiply3x3_mat3(B, u_3x3, vT_3x3);
+    diagonalize3x3(vT_3x3, w_3, vT_3x3);
+    multiply3x3_mat3(u_3x3, vT_3x3, u_3x3);
+    transpose3x3(vT_3x3, vT_3x3); // re-create the flip
+
+    if (d < 0) {
+      w_3[0] = -w_3[0];
+      w_3[1] = -w_3[1];
+      w_3[2] = -w_3[2];
+    }
   }
   function luFactorLinearSystem(A, index, size) {
     var i;
@@ -10012,6 +11061,366 @@ var app = (function () {
     luSolveLinearSystem(A, index, x, size);
     return 1;
   }
+  function invertMatrix(A, AI, size) {
+    var index = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+    var column = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+    var tmp1Size = index || createArray(size);
+    var tmp2Size = column || createArray(size); // Factor matrix; then begin solving for inverse one column at a time.
+    // Note: tmp1Size returned value is used later, tmp2Size is just working
+    // memory whose values are not used in LUSolveLinearSystem
+
+    if (luFactorLinearSystem(A, tmp1Size, size) === 0) {
+      return 0;
+    }
+
+    for (var j = 0; j < size; j++) {
+      for (var i = 0; i < size; i++) {
+        tmp2Size[i] = 0.0;
+      }
+
+      tmp2Size[j] = 1.0;
+      luSolveLinearSystem(A, tmp1Size, tmp2Size, size);
+
+      for (var _i4 = 0; _i4 < size; _i4++) {
+        AI[_i4][j] = tmp2Size[_i4];
+      }
+    }
+
+    return 1;
+  }
+  function estimateMatrixCondition(A, size) {
+    var minValue = +Number.MAX_VALUE;
+    var maxValue = -Number.MAX_VALUE; // find the maximum value
+
+    for (var i = 0; i < size; i++) {
+      for (var j = i; j < size; j++) {
+        if (Math.abs(A[i][j]) > max) {
+          maxValue = Math.abs(A[i][j]);
+        }
+      }
+    } // find the minimum diagonal value
+
+
+    for (var _i5 = 0; _i5 < size; _i5++) {
+      if (Math.abs(A[_i5][_i5]) < min) {
+        minValue = Math.abs(A[_i5][_i5]);
+      }
+    }
+
+    if (minValue === 0.0) {
+      return Number.MAX_VALUE;
+    }
+
+    return maxValue / minValue;
+  }
+  function jacobi(a_3x3, w, v) {
+    return jacobiN(a_3x3, 3, w, v);
+  }
+  function solveHomogeneousLeastSquares(numberOfSamples, xt, xOrder, mt) {
+    // check dimensional consistency
+    if (numberOfSamples < xOrder) {
+      vtkWarningMacro$5('Insufficient number of samples. Underdetermined.');
+      return 0;
+    }
+
+    var i;
+    var j;
+    var k; // set up intermediate variables
+    // Allocate matrix to hold X times transpose of X
+
+    var XXt = createArray(xOrder); // size x by x
+    // Allocate the array of eigenvalues and eigenvectors
+
+    var eigenvals = createArray(xOrder);
+    var eigenvecs = createArray(xOrder); // Clear the upper triangular region (and btw, allocate the eigenvecs as well)
+
+    for (i = 0; i < xOrder; i++) {
+      eigenvecs[i] = createArray(xOrder);
+      XXt[i] = createArray(xOrder);
+
+      for (j = 0; j < xOrder; j++) {
+        XXt[i][j] = 0.0;
+      }
+    } // Calculate XXt upper half only, due to symmetry
+
+
+    for (k = 0; k < numberOfSamples; k++) {
+      for (i = 0; i < xOrder; i++) {
+        for (j = i; j < xOrder; j++) {
+          XXt[i][j] += xt[k][i] * xt[k][j];
+        }
+      }
+    } // now fill in the lower half of the XXt matrix
+
+
+    for (i = 0; i < xOrder; i++) {
+      for (j = 0; j < i; j++) {
+        XXt[i][j] = XXt[j][i];
+      }
+    } // Compute the eigenvectors and eigenvalues
+
+
+    jacobiN(XXt, xOrder, eigenvals, eigenvecs); // Smallest eigenval is at the end of the list (xOrder-1), and solution is
+    // corresponding eigenvec.
+
+    for (i = 0; i < xOrder; i++) {
+      mt[i][0] = eigenvecs[i][xOrder - 1];
+    }
+
+    return 1;
+  }
+  function solveLeastSquares(numberOfSamples, xt, xOrder, yt, yOrder, mt) {
+    var checkHomogeneous = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : true;
+
+    // check dimensional consistency
+    if (numberOfSamples < xOrder || numberOfSamples < yOrder) {
+      vtkWarningMacro$5('Insufficient number of samples. Underdetermined.');
+      return 0;
+    }
+
+    var homogenFlags = createArray(yOrder);
+    var allHomogeneous = 1;
+    var hmt;
+    var homogRC = 0;
+    var i;
+    var j;
+    var k;
+    var someHomogeneous = 0; // Ok, first init some flags check and see if all the systems are homogeneous
+
+    if (checkHomogeneous) {
+      // If Y' is zero, it's a homogeneous system and can't be solved via
+      // the pseudoinverse method. Detect this case, warn the user, and
+      // invoke SolveHomogeneousLeastSquares instead. Note that it doesn't
+      // really make much sense for yOrder to be greater than one in this case,
+      // since that's just yOrder occurrences of a 0 vector on the RHS, but
+      // we allow it anyway. N
+      // Initialize homogeneous flags on a per-right-hand-side basis
+      for (j = 0; j < yOrder; j++) {
+        homogenFlags[j] = 1;
+      }
+
+      for (i = 0; i < numberOfSamples; i++) {
+        for (j = 0; j < yOrder; j++) {
+          if (Math.abs(yt[i][j]) > VTK_SMALL_NUMBER) {
+            allHomogeneous = 0;
+            homogenFlags[j] = 0;
+          }
+        }
+      } // If we've got one system, and it's homogeneous, do it and bail out quickly.
+
+
+      if (allHomogeneous && yOrder === 1) {
+        vtkWarningMacro$5('Detected homogeneous system (Y=0), calling SolveHomogeneousLeastSquares()');
+        return solveHomogeneousLeastSquares(numberOfSamples, xt, xOrder, mt);
+      } // Ok, we've got more than one system of equations.
+      // Figure out if we need to calculate the homogeneous equation solution for
+      // any of them.
+
+
+      if (allHomogeneous) {
+        someHomogeneous = 1;
+      } else {
+        for (j = 0; j < yOrder; j++) {
+          if (homogenFlags[j]) {
+            someHomogeneous = 1;
+          }
+        }
+      }
+    } // If necessary, solve the homogeneous problem
+
+
+    if (someHomogeneous) {
+      // hmt is the homogeneous equation version of mt, the general solution.
+      hmt = createArray(xOrder);
+
+      for (j = 0; j < xOrder; j++) {
+        // Only allocate 1 here, not yOrder, because here we're going to solve
+        // just the one homogeneous equation subset of the entire problem
+        hmt[j] = [0];
+      } // Ok, solve the homogeneous problem
+
+
+      homogRC = solveHomogeneousLeastSquares(numberOfSamples, xt, xOrder, hmt);
+    } // set up intermediate variables
+
+
+    var XXt = createArray(xOrder); // size x by x
+
+    var XXtI = createArray(xOrder); // size x by x
+
+    var XYt = createArray(xOrder); // size x by y
+
+    for (i = 0; i < xOrder; i++) {
+      XXt[i] = createArray(xOrder);
+      XXtI[i] = createArray(xOrder);
+
+      for (j = 0; j < xOrder; j++) {
+        XXt[i][j] = 0.0;
+        XXtI[i][j] = 0.0;
+      }
+
+      XYt[i] = createArray(yOrder);
+
+      for (j = 0; j < yOrder; j++) {
+        XYt[i][j] = 0.0;
+      }
+    } // first find the pseudoinverse matrix
+
+
+    for (k = 0; k < numberOfSamples; k++) {
+      for (i = 0; i < xOrder; i++) {
+        // first calculate the XXt matrix, only do the upper half (symmetrical)
+        for (j = i; j < xOrder; j++) {
+          XXt[i][j] += xt[k][i] * xt[k][j];
+        } // now calculate the XYt matrix
+
+
+        for (j = 0; j < yOrder; j++) {
+          XYt[i][j] += xt[k][i] * yt[k][j];
+        }
+      }
+    } // now fill in the lower half of the XXt matrix
+
+
+    for (i = 0; i < xOrder; i++) {
+      for (j = 0; j < i; j++) {
+        XXt[i][j] = XXt[j][i];
+      }
+    }
+
+    var successFlag = invertMatrix(XXt, XXtI, xOrder); // next get the inverse of XXt
+
+    if (successFlag) {
+      for (i = 0; i < xOrder; i++) {
+        for (j = 0; j < yOrder; j++) {
+          mt[i][j] = 0.0;
+
+          for (k = 0; k < xOrder; k++) {
+            mt[i][j] += XXtI[i][k] * XYt[k][j];
+          }
+        }
+      }
+    } // Fix up any of the solutions that correspond to the homogeneous equation
+    // problem.
+
+
+    if (someHomogeneous) {
+      for (j = 0; j < yOrder; j++) {
+        if (homogenFlags[j]) {
+          // Fix this one
+          for (i = 0; i < xOrder; i++) {
+            mt[i][j] = hmt[i][0];
+          }
+        }
+      }
+    }
+
+    if (someHomogeneous) {
+      return homogRC && successFlag;
+    }
+
+    return successFlag;
+  }
+  function hex2float(hexStr) {
+    var outFloatArray = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [0, 0.5, 1];
+
+    switch (hexStr.length) {
+      case 3:
+        // abc => #aabbcc
+        outFloatArray[0] = parseInt(hexStr[0], 16) * 17 / 255;
+        outFloatArray[1] = parseInt(hexStr[1], 16) * 17 / 255;
+        outFloatArray[2] = parseInt(hexStr[2], 16) * 17 / 255;
+        return outFloatArray;
+
+      case 4:
+        // #abc => #aabbcc
+        outFloatArray[0] = parseInt(hexStr[1], 16) * 17 / 255;
+        outFloatArray[1] = parseInt(hexStr[2], 16) * 17 / 255;
+        outFloatArray[2] = parseInt(hexStr[3], 16) * 17 / 255;
+        return outFloatArray;
+
+      case 6:
+        // ab01df => #ab01df
+        outFloatArray[0] = parseInt(hexStr.substr(0, 2), 16) / 255;
+        outFloatArray[1] = parseInt(hexStr.substr(2, 2), 16) / 255;
+        outFloatArray[2] = parseInt(hexStr.substr(4, 2), 16) / 255;
+        return outFloatArray;
+
+      case 7:
+        // #ab01df
+        outFloatArray[0] = parseInt(hexStr.substr(1, 2), 16) / 255;
+        outFloatArray[1] = parseInt(hexStr.substr(3, 2), 16) / 255;
+        outFloatArray[2] = parseInt(hexStr.substr(5, 2), 16) / 255;
+        return outFloatArray;
+
+      case 9:
+        // #ab01df00
+        outFloatArray[0] = parseInt(hexStr.substr(1, 2), 16) / 255;
+        outFloatArray[1] = parseInt(hexStr.substr(3, 2), 16) / 255;
+        outFloatArray[2] = parseInt(hexStr.substr(5, 2), 16) / 255;
+        outFloatArray[3] = parseInt(hexStr.substr(7, 2), 16) / 255;
+        return outFloatArray;
+
+      default:
+        return outFloatArray;
+    }
+  }
+  function rgb2hsv(rgb, hsv) {
+    var h;
+    var s;
+
+    var _rgb = _slicedToArray(rgb, 3),
+        r = _rgb[0],
+        g = _rgb[1],
+        b = _rgb[2];
+
+    var onethird = 1.0 / 3.0;
+    var onesixth = 1.0 / 6.0;
+    var twothird = 2.0 / 3.0;
+    var cmax = r;
+    var cmin = r;
+
+    if (g > cmax) {
+      cmax = g;
+    } else if (g < cmin) {
+      cmin = g;
+    }
+
+    if (b > cmax) {
+      cmax = b;
+    } else if (b < cmin) {
+      cmin = b;
+    }
+
+    var v = cmax;
+
+    if (v > 0.0) {
+      s = (cmax - cmin) / cmax;
+    } else {
+      s = 0.0;
+    }
+
+    if (s > 0) {
+      if (r === cmax) {
+        h = onesixth * (g - b) / (cmax - cmin);
+      } else if (g === cmax) {
+        h = onethird + onesixth * (b - r) / (cmax - cmin);
+      } else {
+        h = twothird + onesixth * (r - g) / (cmax - cmin);
+      }
+
+      if (h < 0.0) {
+        h += 1.0;
+      }
+    } else {
+      h = 0.0;
+    } // Set the values back to the array
+
+
+    hsv[0] = h;
+    hsv[1] = s;
+    hsv[2] = v;
+  }
   function hsv2rgb(hsv, rgb) {
     var _hsv = _slicedToArray(hsv, 3),
         h = _hsv[0],
@@ -10070,6 +11479,139 @@ var app = (function () {
     rgb[1] = g;
     rgb[2] = b;
   }
+  function lab2xyz(lab, xyz) {
+    // LAB to XYZ
+    var _lab = _slicedToArray(lab, 3),
+        L = _lab[0],
+        a = _lab[1],
+        b = _lab[2];
+
+    var var_Y = (L + 16) / 116;
+    var var_X = a / 500 + var_Y;
+    var var_Z = var_Y - b / 200;
+
+    if (Math.pow(var_Y, 3) > 0.008856) {
+      var_Y = Math.pow(var_Y, 3);
+    } else {
+      var_Y = (var_Y - 16.0 / 116.0) / 7.787;
+    }
+
+    if (Math.pow(var_X, 3) > 0.008856) {
+      var_X = Math.pow(var_X, 3);
+    } else {
+      var_X = (var_X - 16.0 / 116.0) / 7.787;
+    }
+
+    if (Math.pow(var_Z, 3) > 0.008856) {
+      var_Z = Math.pow(var_Z, 3);
+    } else {
+      var_Z = (var_Z - 16.0 / 116.0) / 7.787;
+    }
+
+    var ref_X = 0.9505;
+    var ref_Y = 1.0;
+    var ref_Z = 1.089;
+    xyz[0] = ref_X * var_X; // ref_X = 0.9505  Observer= 2 deg Illuminant= D65
+
+    xyz[1] = ref_Y * var_Y; // ref_Y = 1.000
+
+    xyz[2] = ref_Z * var_Z; // ref_Z = 1.089
+  }
+  function xyz2lab(xyz, lab) {
+    var _xyz = _slicedToArray(xyz, 3),
+        x = _xyz[0],
+        y = _xyz[1],
+        z = _xyz[2];
+
+    var ref_X = 0.9505;
+    var ref_Y = 1.0;
+    var ref_Z = 1.089;
+    var var_X = x / ref_X; // ref_X = 0.9505  Observer= 2 deg, Illuminant= D65
+
+    var var_Y = y / ref_Y; // ref_Y = 1.000
+
+    var var_Z = z / ref_Z; // ref_Z = 1.089
+
+    if (var_X > 0.008856) var_X = Math.pow(var_X, 1.0 / 3.0);else var_X = 7.787 * var_X + 16.0 / 116.0;
+    if (var_Y > 0.008856) var_Y = Math.pow(var_Y, 1.0 / 3.0);else var_Y = 7.787 * var_Y + 16.0 / 116.0;
+    if (var_Z > 0.008856) var_Z = Math.pow(var_Z, 1.0 / 3.0);else var_Z = 7.787 * var_Z + 16.0 / 116.0;
+    lab[0] = 116 * var_Y - 16;
+    lab[1] = 500 * (var_X - var_Y);
+    lab[2] = 200 * (var_Y - var_Z);
+  }
+  function xyz2rgb(xyz, rgb) {
+    var _xyz2 = _slicedToArray(xyz, 3),
+        x = _xyz2[0],
+        y = _xyz2[1],
+        z = _xyz2[2];
+
+    var r = x * 3.2406 + y * -1.5372 + z * -0.4986;
+    var g = x * -0.9689 + y * 1.8758 + z * 0.0415;
+    var b = x * 0.0557 + y * -0.204 + z * 1.057; // The following performs a "gamma correction" specified by the sRGB color
+    // space.  sRGB is defined by a canonical definition of a display monitor and
+    // has been standardized by the International Electrotechnical Commission (IEC
+    // 61966-2-1).  The nonlinearity of the correction is designed to make the
+    // colors more perceptually uniform.  This color space has been adopted by
+    // several applications including Adobe Photoshop and Microsoft Windows color
+    // management.  OpenGL is agnostic on its RGB color space, but it is reasonable
+    // to assume it is close to this one.
+
+    if (r > 0.0031308) r = 1.055 * Math.pow(r, 1 / 2.4) - 0.055;else r *= 12.92;
+    if (g > 0.0031308) g = 1.055 * Math.pow(g, 1 / 2.4) - 0.055;else g *= 12.92;
+    if (b > 0.0031308) b = 1.055 * Math.pow(b, 1 / 2.4) - 0.055;else b *= 12.92; // Clip colors. ideally we would do something that is perceptually closest
+    // (since we can see colors outside of the display gamut), but this seems to
+    // work well enough.
+
+    var maxVal = r;
+    if (maxVal < g) maxVal = g;
+    if (maxVal < b) maxVal = b;
+
+    if (maxVal > 1.0) {
+      r /= maxVal;
+      g /= maxVal;
+      b /= maxVal;
+    }
+
+    if (r < 0) r = 0;
+    if (g < 0) g = 0;
+    if (b < 0) b = 0; // Push values back to array
+
+    rgb[0] = r;
+    rgb[1] = g;
+    rgb[2] = b;
+  }
+  function rgb2xyz(rgb, xyz) {
+    var _rgb2 = _slicedToArray(rgb, 3),
+        r = _rgb2[0],
+        g = _rgb2[1],
+        b = _rgb2[2]; // The following performs a "gamma correction" specified by the sRGB color
+    // space.  sRGB is defined by a canonical definition of a display monitor and
+    // has been standardized by the International Electrotechnical Commission (IEC
+    // 61966-2-1).  The nonlinearity of the correction is designed to make the
+    // colors more perceptually uniform.  This color space has been adopted by
+    // several applications including Adobe Photoshop and Microsoft Windows color
+    // management.  OpenGL is agnostic on its RGB color space, but it is reasonable
+    // to assume it is close to this one.
+
+
+    if (r > 0.04045) r = Math.pow((r + 0.055) / 1.055, 2.4);else r /= 12.92;
+    if (g > 0.04045) g = Math.pow((g + 0.055) / 1.055, 2.4);else g /= 12.92;
+    if (b > 0.04045) b = Math.pow((b + 0.055) / 1.055, 2.4);else b /= 12.92; // Observer. = 2 deg, Illuminant = D65
+
+    xyz[0] = r * 0.4124 + g * 0.3576 + b * 0.1805;
+    xyz[1] = r * 0.2126 + g * 0.7152 + b * 0.0722;
+    xyz[2] = r * 0.0193 + g * 0.1192 + b * 0.9505;
+  }
+  function rgb2lab(rgb, lab) {
+    var xyz = [0, 0, 0];
+    rgb2xyz(rgb, xyz);
+    xyz2lab(xyz, lab);
+  }
+  function lab2rgb(lab, rgb) {
+    var xyz = [0, 0, 0];
+    lab2xyz(lab, xyz);
+    xyz2rgb(xyz, rgb);
+  }
   function uninitializeBounds(bounds) {
     bounds[0] = 1.0;
     bounds[1] = -1.0;
@@ -10109,7 +11651,108 @@ var app = (function () {
     out[2] = clampValue(vector[2], minVector[2], maxVector[2]);
     return out;
   }
-  var isNaN$1 = Number.isNaN;
+  function clampAndNormalizeValue(value, range) {
+    var result = 0;
+
+    if (range[0] !== range[1]) {
+      // clamp
+      if (value < range[0]) {
+        result = range[0];
+      } else if (value > range[1]) {
+        result = range[1];
+      } else {
+        result = value;
+      } // normalize
+
+
+      result = (result - range[0]) / (range[1] - range[0]);
+    }
+
+    return result;
+  }
+  var getScalarTypeFittingRange = notImplemented$5('GetScalarTypeFittingRange');
+  var getAdjustedScalarRange = notImplemented$5('GetAdjustedScalarRange');
+  function extentIsWithinOtherExtent(extent1, extent2) {
+    if (!extent1 || !extent2) {
+      return 0;
+    }
+
+    for (var i = 0; i < 6; i += 2) {
+      if (extent1[i] < extent2[i] || extent1[i] > extent2[i + 1] || extent1[i + 1] < extent2[i] || extent1[i + 1] > extent2[i + 1]) {
+        return 0;
+      }
+    }
+
+    return 1;
+  }
+  function boundsIsWithinOtherBounds(bounds1_6, bounds2_6, delta_3) {
+    if (!bounds1_6 || !bounds2_6) {
+      return 0;
+    }
+
+    for (var i = 0; i < 6; i += 2) {
+      if (bounds1_6[i] + delta_3[i / 2] < bounds2_6[i] || bounds1_6[i] - delta_3[i / 2] > bounds2_6[i + 1] || bounds1_6[i + 1] + delta_3[i / 2] < bounds2_6[i] || bounds1_6[i + 1] - delta_3[i / 2] > bounds2_6[i + 1]) {
+        return 0;
+      }
+    }
+
+    return 1;
+  }
+  function pointIsWithinBounds(point_3, bounds_6, delta_3) {
+    if (!point_3 || !bounds_6 || !delta_3) {
+      return 0;
+    }
+
+    for (var i = 0; i < 3; i++) {
+      if (point_3[i] + delta_3[i] < bounds_6[2 * i] || point_3[i] - delta_3[i] > bounds_6[2 * i + 1]) {
+        return 0;
+      }
+    }
+
+    return 1;
+  }
+  function solve3PointCircle(p1, p2, p3, center) {
+    var v21 = createArray(3);
+    var v32 = createArray(3);
+    var v13 = createArray(3);
+    var v12 = createArray(3);
+    var v23 = createArray(3);
+    var v31 = createArray(3);
+
+    for (var i = 0; i < 3; ++i) {
+      v21[i] = p1[i] - p2[i];
+      v32[i] = p2[i] - p3[i];
+      v13[i] = p3[i] - p1[i];
+      v12[i] = -v21[i];
+      v23[i] = -v32[i];
+      v31[i] = -v13[i];
+    }
+
+    var norm12 = norm(v12);
+    var norm23 = norm(v23);
+    var norm13 = norm(v13);
+    var crossv21v32 = createArray(3);
+    cross(v21, v32, crossv21v32);
+    var normCross = norm(crossv21v32);
+    var radius = norm12 * norm23 * norm13 / (2 * normCross);
+    var normCross22 = 2 * normCross * normCross;
+    var alpha = norm23 * norm23 * dot(v21, v31) / normCross22;
+    var beta = norm13 * norm13 * dot(v12, v32) / normCross22;
+    var gamma = norm12 * norm12 * dot(v13, v23) / normCross22;
+
+    for (var _i6 = 0; _i6 < 3; ++_i6) {
+      center[_i6] = alpha * p1[_i6] + beta * p2[_i6] + gamma * p3[_i6];
+    }
+
+    return radius;
+  }
+  var inf = Infinity;
+  var negInf = -Infinity;
+  var isInf = function isInf(value) {
+    return !Number.isFinite(value);
+  };
+  var isFinite$1 = Number.isFinite,
+      isNaN$1 = Number.isNaN;
   var isNan = isNaN$1; // JavaScript - add-on ----------------------
 
   function createUninitializedBounds() {
@@ -10118,6 +11761,158 @@ var app = (function () {
     Number.MAX_VALUE, -Number.MAX_VALUE // Z
     ]);
   }
+  function getMajorAxisIndex(vector) {
+    var maxValue = -1;
+    var axisIndex = -1;
+
+    for (var i = 0; i < vector.length; i++) {
+      var value = Math.abs(vector[i]);
+
+      if (value > maxValue) {
+        axisIndex = i;
+        maxValue = value;
+      }
+    }
+
+    return axisIndex;
+  }
+  function floatToHex2(value) {
+    var integer = Math.floor(value * 255);
+
+    if (integer > 15) {
+      return integer.toString(16);
+    }
+
+    return "0".concat(integer.toString(16));
+  }
+  function floatRGB2HexCode(rgbArray) {
+    var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '#';
+    return "".concat(prefix).concat(rgbArray.map(floatToHex2).join(''));
+  }
+
+  function floatToChar(f) {
+    return Math.round(f * 255);
+  }
+
+  function float2CssRGBA(rgbArray) {
+    if (rgbArray.length === 3) {
+      return "rgb(".concat(rgbArray.map(floatToChar).join(', '), ")");
+    }
+
+    return "rgba(".concat(floatToChar(rgbArray[0] || 0), ", ").concat(floatToChar(rgbArray[1] || 0), ", ").concat(floatToChar(rgbArray[2] || 0), ", ").concat(rgbArray[3] || 0, ")");
+  } // ----------------------------------------------------------------------------
+  // Only Static API
+  // ----------------------------------------------------------------------------
+
+  var vtkMath = {
+    Pi: Pi,
+    radiansFromDegrees: radiansFromDegrees,
+    degreesFromRadians: degreesFromRadians,
+    round: round,
+    floor: floor,
+    ceil: ceil,
+    ceilLog2: ceilLog2,
+    min: min,
+    max: max,
+    arrayMin: arrayMin,
+    arrayMax: arrayMax,
+    arrayRange: arrayRange,
+    isPowerOfTwo: isPowerOfTwo,
+    nearestPowerOfTwo: nearestPowerOfTwo,
+    factorial: factorial,
+    binomial: binomial,
+    beginCombination: beginCombination,
+    nextCombination: nextCombination,
+    randomSeed: randomSeed,
+    getSeed: getSeed,
+    random: random,
+    gaussian: gaussian,
+    add: add,
+    subtract: subtract,
+    multiplyScalar: multiplyScalar,
+    multiplyScalar2D: multiplyScalar2D,
+    multiplyAccumulate: multiplyAccumulate,
+    multiplyAccumulate2D: multiplyAccumulate2D,
+    dot: dot,
+    outer: outer,
+    cross: cross,
+    norm: norm,
+    normalize: normalize,
+    perpendiculars: perpendiculars,
+    projectVector: projectVector$1,
+    projectVector2D: projectVector2D,
+    distance2BetweenPoints: distance2BetweenPoints,
+    angleBetweenVectors: angleBetweenVectors,
+    gaussianAmplitude: gaussianAmplitude,
+    gaussianWeight: gaussianWeight,
+    dot2D: dot2D,
+    outer2D: outer2D,
+    norm2D: norm2D,
+    normalize2D: normalize2D,
+    determinant2x2: determinant2x2,
+    LUFactor3x3: LUFactor3x3,
+    LUSolve3x3: LUSolve3x3,
+    linearSolve3x3: linearSolve3x3,
+    multiply3x3_vect3: multiply3x3_vect3,
+    multiply3x3_mat3: multiply3x3_mat3,
+    multiplyMatrix: multiplyMatrix,
+    transpose3x3: transpose3x3,
+    invert3x3: invert3x3,
+    identity3x3: identity3x3,
+    determinant3x3: determinant3x3,
+    quaternionToMatrix3x3: quaternionToMatrix3x3,
+    areEquals: areEquals,
+    areMatricesEqual: areMatricesEqual,
+    roundNumber: roundNumber,
+    roundVector: roundVector,
+    matrix3x3ToQuaternion: matrix3x3ToQuaternion,
+    multiplyQuaternion: multiplyQuaternion,
+    orthogonalize3x3: orthogonalize3x3,
+    diagonalize3x3: diagonalize3x3,
+    singularValueDecomposition3x3: singularValueDecomposition3x3,
+    solveLinearSystem: solveLinearSystem,
+    invertMatrix: invertMatrix,
+    luFactorLinearSystem: luFactorLinearSystem,
+    luSolveLinearSystem: luSolveLinearSystem,
+    estimateMatrixCondition: estimateMatrixCondition,
+    jacobi: jacobi,
+    jacobiN: jacobiN,
+    solveHomogeneousLeastSquares: solveHomogeneousLeastSquares,
+    solveLeastSquares: solveLeastSquares,
+    hex2float: hex2float,
+    rgb2hsv: rgb2hsv,
+    hsv2rgb: hsv2rgb,
+    lab2xyz: lab2xyz,
+    xyz2lab: xyz2lab,
+    xyz2rgb: xyz2rgb,
+    rgb2xyz: rgb2xyz,
+    rgb2lab: rgb2lab,
+    lab2rgb: lab2rgb,
+    uninitializeBounds: uninitializeBounds,
+    areBoundsInitialized: areBoundsInitialized,
+    computeBoundsFromPoints: computeBoundsFromPoints,
+    clampValue: clampValue,
+    clampVector: clampVector,
+    clampAndNormalizeValue: clampAndNormalizeValue,
+    getScalarTypeFittingRange: getScalarTypeFittingRange,
+    getAdjustedScalarRange: getAdjustedScalarRange,
+    extentIsWithinOtherExtent: extentIsWithinOtherExtent,
+    boundsIsWithinOtherBounds: boundsIsWithinOtherBounds,
+    pointIsWithinBounds: pointIsWithinBounds,
+    solve3PointCircle: solve3PointCircle,
+    inf: inf,
+    negInf: negInf,
+    isInf: isInf,
+    isNan: isNaN$1,
+    isNaN: isNaN$1,
+    isFinite: isFinite$1,
+    // JS add-on
+    createUninitializedBounds: createUninitializedBounds,
+    getMajorAxisIndex: getMajorAxisIndex,
+    floatToHex2: floatToHex2,
+    floatRGB2HexCode: floatRGB2HexCode,
+    float2CssRGBA: float2CssRGBA
+  };
 
   // vtkAbstractMapper methods
   // ----------------------------------------------------------------------------
@@ -14618,7 +16413,7 @@ var app = (function () {
       Filter$1 = Constants$5.Filter;
   var VtkDataTypes = vtkDataArray$1.VtkDataTypes;
   var vtkDebugMacro$8 = vtkDebugMacro$a,
-      vtkErrorMacro$d = vtkErrorMacro$l,
+      vtkErrorMacro$d = vtkErrorMacro$m,
       vtkWarningMacro$3 = vtkWarningMacro$6; // ----------------------------------------------------------------------------
   // vtkOpenGLTexture methods
   // ----------------------------------------------------------------------------
@@ -16096,7 +17891,7 @@ var app = (function () {
   var ScalarMode$3 = vtkMapper$1.ScalarMode;
   var Filter = vtkOpenGLTexture$1.Filter,
       Wrap = vtkOpenGLTexture$1.Wrap;
-  var vtkErrorMacro$c = vtkErrorMacro$l;
+  var vtkErrorMacro$c = vtkErrorMacro$m;
   var StartEvent$2 = {
     type: 'StartEvent'
   };
@@ -17655,7 +19450,7 @@ var app = (function () {
   // import { mat3, mat4, vec3 } from 'gl-matrix';
   var primTypes = vtkOpenGLPolyDataMapper$1.primTypes;
   var ScalarMode$1 = vtkMapper2D$1.ScalarMode;
-  var vtkErrorMacro$a = vtkErrorMacro$l;
+  var vtkErrorMacro$a = vtkErrorMacro$m;
   var StartEvent$1 = {
     type: 'StartEvent'
   };
@@ -18297,7 +20092,7 @@ var app = (function () {
 
   registerOverride$1('vtkMapper2D', newInstance$S);
 
-  var vtkErrorMacro$9 = vtkErrorMacro$l; // ----------------------------------------------------------------------------
+  var vtkErrorMacro$9 = vtkErrorMacro$m; // ----------------------------------------------------------------------------
   // vtkOpenGLSkybox methods
   // ----------------------------------------------------------------------------
 
@@ -19525,7 +21320,7 @@ var app = (function () {
       return textureDetails[format];
     }
 
-    vtkErrorMacro$l("unknown format ".concat(format));
+    vtkErrorMacro$m("unknown format ".concat(format));
     return null;
   } // see https://gpuweb.github.io/gpuweb/#enumdef-gpuvertexformat
   // for possible formats
@@ -19546,7 +21341,7 @@ var app = (function () {
     var num = Number(format[sizeStart]);
 
     if (Number.isNaN(num)) {
-      vtkErrorMacro$l("unknown format ".concat(format));
+      vtkErrorMacro$m("unknown format ".concat(format));
       return 0;
     }
 
@@ -19582,7 +21377,7 @@ var app = (function () {
     } else if (format[0] === 'u') {
       result = 'Uint';
     } else {
-      vtkErrorMacro$l("unknown format ".concat(format));
+      vtkErrorMacro$m("unknown format ".concat(format));
       return undefined;
     } // options are 8, 16, 32 resulting in 8, 6, 2 as the last char
     // plugged into the formula below gives 1, 2, 4 respectively
@@ -19592,7 +21387,7 @@ var app = (function () {
     var num = Number(base[base.length - 1]);
 
     if (Number.isNaN(num)) {
-      vtkErrorMacro$l("unknown format ".concat(format));
+      vtkErrorMacro$m("unknown format ".concat(format));
       return undefined;
     }
 
@@ -19611,7 +21406,7 @@ var app = (function () {
     } else if (format[0] === 'u' && format[1] === 'i') {
       dataType = 'u32';
     } else {
-      vtkErrorMacro$l("unknown format ".concat(format));
+      vtkErrorMacro$m("unknown format ".concat(format));
       return undefined;
     } // options are x2, x3, x4 or nothing
 
@@ -19647,7 +21442,7 @@ var app = (function () {
     if (format.includes('f32')) return 'Float32Array';
     if (format.includes('i32')) return 'Int32Array';
     if (format.includes('u32')) return 'Uint32Array';
-    vtkErrorMacro$l("unknown format ".concat(format));
+    vtkErrorMacro$m("unknown format ".concat(format));
     return undefined;
   }
 
@@ -24321,7 +26116,7 @@ var app = (function () {
         if (model.openGLRenderWindow.getWebgl2()) {
           glAttachment += attachment;
         } else {
-          vtkErrorMacro$l('Using multiple framebuffer attachments requires WebGL 2');
+          vtkErrorMacro$m('Using multiple framebuffer attachments requires WebGL 2');
           return;
         }
       }
@@ -24339,7 +26134,7 @@ var app = (function () {
         if (model.openGLRenderWindow.getWebgl2()) {
           glAttachment += attachment;
         } else {
-          vtkErrorMacro$l('Using multiple framebuffer attachments requires WebGL 2');
+          vtkErrorMacro$m('Using multiple framebuffer attachments requires WebGL 2');
           return;
         }
       }
@@ -24352,7 +26147,7 @@ var app = (function () {
         var gl = model.context;
         gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.TEXTURE_2D, texture.getHandle(), 0);
       } else {
-        vtkErrorMacro$l('Attaching depth buffer textures to fbo requires WebGL 2');
+        vtkErrorMacro$m('Attaching depth buffer textures to fbo requires WebGL 2');
       }
     };
 
@@ -24361,7 +26156,7 @@ var app = (function () {
         var gl = model.context;
         gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.TEXTURE_2D, null, 0);
       } else {
-        vtkErrorMacro$l('Attaching depth buffer textures to framebuffers requires WebGL 2');
+        vtkErrorMacro$m('Attaching depth buffer textures to framebuffers requires WebGL 2');
       }
     };
 
@@ -28162,7 +29957,7 @@ var app = (function () {
   };
 
   var vtkDebugMacro$2 = vtkDebugMacro$a,
-      vtkErrorMacro$3 = vtkErrorMacro$l,
+      vtkErrorMacro$3 = vtkErrorMacro$m,
       vtkWarningMacro$2 = vtkWarningMacro$6;
 
   function notImplemented$1(method) {
@@ -43235,7 +45030,7 @@ var app = (function () {
 
       const sessionOption = { 
           executionProviders: ['wasm'] ,
-          graphOptimizationLevel: "disabled"
+          graphOptimizationLevel: "all"
           // extra: {
           //     session: {
           //         set_denormal_as_zero: "0",
@@ -43251,18 +45046,74 @@ var app = (function () {
       m_session = await ort.InferenceSession.create('resources/spiralnetDecoder.onnx', sessionOption);
   };
 
-  const decoder = async(polydata, latent = new Float32Array(sampleLatents[0]) ) =>{    
+  const updateNormals = (polydata) =>{
+      let pointsData = polydata.getPoints().getData();
+      let polysData = polydata.getPolys().getData();
+
+      
+      const normalsData = new Float32Array(pointsData.length);
+
+      let numberOfPoints = 0;
+      const polysDataLength = polysData.length;
+
+      const cellPointIds = [0, 0, 0];
+
+
+      for (let c = 0; c < polysDataLength; c += numberOfPoints + 1) {
+          numberOfPoints = polysData[c];
+
+          if (numberOfPoints < 3) {
+              continue; // eslint-disable-line
+          }
+
+          for (let i = 1; i <= 3; ++i) {
+              cellPointIds[i - 1] = 3 * polysData[c + i];
+          }
+          const cellNormal = [];
+
+          vtkTriangle$1.computeNormal(
+              pointsData.slice(cellPointIds[0], cellPointIds[0] + 3),
+              pointsData.slice(cellPointIds[1], cellPointIds[1] + 3),
+              pointsData.slice(cellPointIds[2], cellPointIds[2] + 3),
+              cellNormal
+          );
+
+          for (let i = 1; i <= numberOfPoints; ++i) {
+              let pointId = 3 * polysData[c + i];
+
+              normalsData[pointId] += cellNormal[0];
+              normalsData[++pointId] += cellNormal[1];
+              normalsData[++pointId] += cellNormal[2];
+          }
+      }
+
+      /* Normalize normals */
+
+      for (let i = 0; i < pointsData.length; ) {
+          const pointNormal = normalsData.slice(i, i + 3);
+
+          vtkMath.normalize(pointNormal);
+
+          normalsData[i++] = pointNormal[0];
+          normalsData[i++] = pointNormal[1];
+          normalsData[i++] = pointNormal[2];
+      }
+
+      polydata.getPointData().getNormals().setData(normalsData);
+  };
+
+  const decoder = async(polydata, latent = new Float32Array(sampleLatents[1]) ) =>{    
       const input_tensor = new ort.Tensor('float32', latent  , [1, 16]);
       const pred = await m_session.run({input:input_tensor});
       const output = pred.output;
 
-      // Update polydata
-      const data = output.data;    
-      // console.log(input_tensor.data)
-      // console.log(data)
-      for(let i=0 ; i<data.length ; i+=3){                
-          polydata.getPoints().setPoint(i/3, data[i], data[i+1], data[i+2]);        
-      }
+      // Update polydata    
+      polydata.getPoints().setData(output.data);
+
+      // Update Normals
+      updateNormals(polydata);
+
+
       polydata.modified();    
   };
 
@@ -43476,109 +45327,109 @@ var app = (function () {
   			div48 = element("div");
   			t48 = space();
   			div49 = element("div");
-  			attr_dev(div0, "class", "star svelte-1onq00y");
+  			attr_dev(div0, "class", "star svelte-eqw1jx");
   			add_location(div0, file$4, 2, 4, 43);
-  			attr_dev(div1, "class", "star svelte-1onq00y");
+  			attr_dev(div1, "class", "star svelte-eqw1jx");
   			add_location(div1, file$4, 3, 4, 72);
-  			attr_dev(div2, "class", "star svelte-1onq00y");
+  			attr_dev(div2, "class", "star svelte-eqw1jx");
   			add_location(div2, file$4, 4, 4, 101);
-  			attr_dev(div3, "class", "star svelte-1onq00y");
+  			attr_dev(div3, "class", "star svelte-eqw1jx");
   			add_location(div3, file$4, 5, 4, 130);
-  			attr_dev(div4, "class", "star svelte-1onq00y");
+  			attr_dev(div4, "class", "star svelte-eqw1jx");
   			add_location(div4, file$4, 6, 4, 159);
-  			attr_dev(div5, "class", "star svelte-1onq00y");
+  			attr_dev(div5, "class", "star svelte-eqw1jx");
   			add_location(div5, file$4, 7, 4, 188);
-  			attr_dev(div6, "class", "star svelte-1onq00y");
+  			attr_dev(div6, "class", "star svelte-eqw1jx");
   			add_location(div6, file$4, 8, 4, 217);
-  			attr_dev(div7, "class", "star svelte-1onq00y");
+  			attr_dev(div7, "class", "star svelte-eqw1jx");
   			add_location(div7, file$4, 9, 4, 246);
-  			attr_dev(div8, "class", "star svelte-1onq00y");
+  			attr_dev(div8, "class", "star svelte-eqw1jx");
   			add_location(div8, file$4, 10, 4, 275);
-  			attr_dev(div9, "class", "star svelte-1onq00y");
+  			attr_dev(div9, "class", "star svelte-eqw1jx");
   			add_location(div9, file$4, 11, 4, 304);
-  			attr_dev(div10, "class", "star svelte-1onq00y");
+  			attr_dev(div10, "class", "star svelte-eqw1jx");
   			add_location(div10, file$4, 12, 4, 333);
-  			attr_dev(div11, "class", "star svelte-1onq00y");
+  			attr_dev(div11, "class", "star svelte-eqw1jx");
   			add_location(div11, file$4, 13, 4, 362);
-  			attr_dev(div12, "class", "star svelte-1onq00y");
+  			attr_dev(div12, "class", "star svelte-eqw1jx");
   			add_location(div12, file$4, 14, 4, 391);
-  			attr_dev(div13, "class", "star svelte-1onq00y");
+  			attr_dev(div13, "class", "star svelte-eqw1jx");
   			add_location(div13, file$4, 15, 4, 420);
-  			attr_dev(div14, "class", "star svelte-1onq00y");
+  			attr_dev(div14, "class", "star svelte-eqw1jx");
   			add_location(div14, file$4, 16, 4, 449);
-  			attr_dev(div15, "class", "star svelte-1onq00y");
+  			attr_dev(div15, "class", "star svelte-eqw1jx");
   			add_location(div15, file$4, 17, 4, 478);
-  			attr_dev(div16, "class", "star svelte-1onq00y");
+  			attr_dev(div16, "class", "star svelte-eqw1jx");
   			add_location(div16, file$4, 18, 4, 507);
-  			attr_dev(div17, "class", "star svelte-1onq00y");
+  			attr_dev(div17, "class", "star svelte-eqw1jx");
   			add_location(div17, file$4, 19, 4, 536);
-  			attr_dev(div18, "class", "star svelte-1onq00y");
+  			attr_dev(div18, "class", "star svelte-eqw1jx");
   			add_location(div18, file$4, 20, 4, 565);
-  			attr_dev(div19, "class", "star svelte-1onq00y");
+  			attr_dev(div19, "class", "star svelte-eqw1jx");
   			add_location(div19, file$4, 21, 4, 594);
-  			attr_dev(div20, "class", "star svelte-1onq00y");
+  			attr_dev(div20, "class", "star svelte-eqw1jx");
   			add_location(div20, file$4, 22, 4, 623);
-  			attr_dev(div21, "class", "star svelte-1onq00y");
+  			attr_dev(div21, "class", "star svelte-eqw1jx");
   			add_location(div21, file$4, 23, 4, 652);
-  			attr_dev(div22, "class", "star svelte-1onq00y");
+  			attr_dev(div22, "class", "star svelte-eqw1jx");
   			add_location(div22, file$4, 24, 4, 681);
-  			attr_dev(div23, "class", "star svelte-1onq00y");
+  			attr_dev(div23, "class", "star svelte-eqw1jx");
   			add_location(div23, file$4, 25, 4, 710);
-  			attr_dev(div24, "class", "star svelte-1onq00y");
+  			attr_dev(div24, "class", "star svelte-eqw1jx");
   			add_location(div24, file$4, 26, 4, 739);
-  			attr_dev(div25, "class", "star svelte-1onq00y");
+  			attr_dev(div25, "class", "star svelte-eqw1jx");
   			add_location(div25, file$4, 27, 4, 768);
-  			attr_dev(div26, "class", "star svelte-1onq00y");
+  			attr_dev(div26, "class", "star svelte-eqw1jx");
   			add_location(div26, file$4, 28, 4, 797);
-  			attr_dev(div27, "class", "star svelte-1onq00y");
+  			attr_dev(div27, "class", "star svelte-eqw1jx");
   			add_location(div27, file$4, 29, 4, 826);
-  			attr_dev(div28, "class", "star svelte-1onq00y");
+  			attr_dev(div28, "class", "star svelte-eqw1jx");
   			add_location(div28, file$4, 30, 4, 855);
-  			attr_dev(div29, "class", "star svelte-1onq00y");
+  			attr_dev(div29, "class", "star svelte-eqw1jx");
   			add_location(div29, file$4, 31, 4, 884);
-  			attr_dev(div30, "class", "star svelte-1onq00y");
+  			attr_dev(div30, "class", "star svelte-eqw1jx");
   			add_location(div30, file$4, 32, 4, 913);
-  			attr_dev(div31, "class", "star svelte-1onq00y");
+  			attr_dev(div31, "class", "star svelte-eqw1jx");
   			add_location(div31, file$4, 33, 4, 942);
-  			attr_dev(div32, "class", "star svelte-1onq00y");
+  			attr_dev(div32, "class", "star svelte-eqw1jx");
   			add_location(div32, file$4, 34, 4, 971);
-  			attr_dev(div33, "class", "star svelte-1onq00y");
+  			attr_dev(div33, "class", "star svelte-eqw1jx");
   			add_location(div33, file$4, 35, 4, 1000);
-  			attr_dev(div34, "class", "star svelte-1onq00y");
+  			attr_dev(div34, "class", "star svelte-eqw1jx");
   			add_location(div34, file$4, 36, 4, 1029);
-  			attr_dev(div35, "class", "star svelte-1onq00y");
+  			attr_dev(div35, "class", "star svelte-eqw1jx");
   			add_location(div35, file$4, 37, 4, 1058);
-  			attr_dev(div36, "class", "star svelte-1onq00y");
+  			attr_dev(div36, "class", "star svelte-eqw1jx");
   			add_location(div36, file$4, 38, 4, 1087);
-  			attr_dev(div37, "class", "star svelte-1onq00y");
+  			attr_dev(div37, "class", "star svelte-eqw1jx");
   			add_location(div37, file$4, 39, 4, 1116);
-  			attr_dev(div38, "class", "star svelte-1onq00y");
+  			attr_dev(div38, "class", "star svelte-eqw1jx");
   			add_location(div38, file$4, 40, 4, 1145);
-  			attr_dev(div39, "class", "star svelte-1onq00y");
+  			attr_dev(div39, "class", "star svelte-eqw1jx");
   			add_location(div39, file$4, 41, 4, 1174);
-  			attr_dev(div40, "class", "star svelte-1onq00y");
+  			attr_dev(div40, "class", "star svelte-eqw1jx");
   			add_location(div40, file$4, 42, 4, 1203);
-  			attr_dev(div41, "class", "star svelte-1onq00y");
+  			attr_dev(div41, "class", "star svelte-eqw1jx");
   			add_location(div41, file$4, 43, 4, 1232);
-  			attr_dev(div42, "class", "star svelte-1onq00y");
+  			attr_dev(div42, "class", "star svelte-eqw1jx");
   			add_location(div42, file$4, 44, 4, 1261);
-  			attr_dev(div43, "class", "star svelte-1onq00y");
+  			attr_dev(div43, "class", "star svelte-eqw1jx");
   			add_location(div43, file$4, 45, 4, 1290);
-  			attr_dev(div44, "class", "star svelte-1onq00y");
+  			attr_dev(div44, "class", "star svelte-eqw1jx");
   			add_location(div44, file$4, 46, 4, 1319);
-  			attr_dev(div45, "class", "star svelte-1onq00y");
+  			attr_dev(div45, "class", "star svelte-eqw1jx");
   			add_location(div45, file$4, 47, 4, 1348);
-  			attr_dev(div46, "class", "star svelte-1onq00y");
+  			attr_dev(div46, "class", "star svelte-eqw1jx");
   			add_location(div46, file$4, 48, 4, 1377);
-  			attr_dev(div47, "class", "star svelte-1onq00y");
+  			attr_dev(div47, "class", "star svelte-eqw1jx");
   			add_location(div47, file$4, 49, 4, 1406);
-  			attr_dev(div48, "class", "star svelte-1onq00y");
+  			attr_dev(div48, "class", "star svelte-eqw1jx");
   			add_location(div48, file$4, 50, 4, 1435);
-  			attr_dev(div49, "class", "star svelte-1onq00y");
+  			attr_dev(div49, "class", "star svelte-eqw1jx");
   			add_location(div49, file$4, 51, 4, 1464);
-  			attr_dev(div50, "class", "stars svelte-1onq00y");
+  			attr_dev(div50, "class", "stars svelte-eqw1jx");
   			add_location(div50, file$4, 1, 0, 19);
-  			attr_dev(div51, "class", "body svelte-1onq00y");
+  			attr_dev(div51, "class", "body svelte-eqw1jx");
   			add_location(div51, file$4, 0, 0, 0);
   		},
   		l: function claim(nodes) {
@@ -43750,7 +45601,7 @@ var app = (function () {
   	const block = {
   		c: function create() {
   			div = element("div");
-  			attr_dev(div, "class", "c svelte-1bdmfjb");
+  			attr_dev(div, "class", "c svelte-1c5c02t");
   			add_location(div, file$3, 2, 8, 57);
   		},
   		m: function mount(target, anchor) {
@@ -43790,7 +45641,7 @@ var app = (function () {
   				each_blocks[i].c();
   			}
 
-  			attr_dev(div, "class", "wrap svelte-1bdmfjb");
+  			attr_dev(div, "class", "wrap svelte-1c5c02t");
   			add_location(div, file$3, 0, 0, 0);
   		},
   		l: function claim(nodes) {
@@ -44185,7 +46036,7 @@ var app = (function () {
   /* src/App.svelte generated by Svelte v3.44.3 */
   const file = "src/App.svelte";
 
-  // (158:0) {#if m_bWarmUp}
+  // (152:0) {#if m_bWarmUp}
   function create_if_block(ctx) {
   	let pill;
   	let current;
@@ -44237,7 +46088,7 @@ var app = (function () {
   		block,
   		id: create_if_block.name,
   		type: "if",
-  		source: "(158:0) {#if m_bWarmUp}",
+  		source: "(152:0) {#if m_bWarmUp}",
   		ctx
   	});
 
@@ -44266,7 +46117,7 @@ var app = (function () {
   			if (if_block) if_block.c();
   			if_block_anchor = empty();
   			attr_dev(div, "class", "renderer svelte-xeqz9w");
-  			add_location(div, file, 155, 0, 3994);
+  			add_location(div, file, 149, 0, 3745);
   		},
   		l: function claim(nodes) {
   			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -44366,7 +46217,7 @@ var app = (function () {
   	let m_bControl = false;
   	let m_bCalculate = false;
   	let m_pillTop = "10%";
-  	let m_pillLeft = '10%';
+  	let m_pillLeft = '50%';
   	let m_windowInnerWidth, m_windowInnerHeight;
 
   	onMount(async () => {
@@ -44377,24 +46228,18 @@ var app = (function () {
   		m_targetObject = await readPolyData('resources/sample_1_norm.vtp');
 
   		// m_targetObject.getPointData().removeArray("Normals");
-  		// let colors = new Int8Array(m_targetObject.getNumberOfPoints());						
-  		// for(let pid in colors){
-  		// 	const position = m_targetObject.getPoints().getPoint(pid);
-  		// 	if(position[0] > 0) colors[pid] = 1;
-  		// }
-  		// let scalars = vtkDataArray.newInstance({values:colors});
-  		// m_targetObject.getPointData().setScalars(scalars);
   		m_targetActor = makeActor(m_targetObject);
 
-  		m_targetActor.getProperty().setColor(239 / 255, 192 / 255, 80 / 255);
+  		m_targetActor.getProperty().setColor(.87, .66, .1);
   		m_targetActor.getProperty().setSpecular(true);
   		m_targetActor.getProperty().setSpecularPower(400);
   		m_renderer.getActiveCamera().setPosition(0, 0, 100);
   		m_renderer.getActiveCamera().setViewUp(0, 1, 0);
   		await warmUp();
-  		await decoder(m_targetObject);
+  		await latentFunction(.5, .1);
   		m_renderer.addActor(m_targetActor);
   		m_renderer.resetCamera();
+  		m_renderer.getActiveCamera().zoom(0.7);
 
   		// m_renderer.getActiveCamera().translate(10, 0, 0);
   		// console.log(m_renderer.getActiveCamera());
@@ -44420,6 +46265,8 @@ var app = (function () {
   		}
 
   		$$invalidate(2, latentColor = `rgb(${255 * latentWeights[0]}, ${0}, ${255 * latentWeights[2]})`);
+
+  		// m_targetActor.getProperty().setColor((1-x)/1.4, x/1.4, .4);
   		let outputLatent = new Float32Array(16);
 
   		for (let i in sampleLatents) {
